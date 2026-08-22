@@ -10,24 +10,14 @@
 <body>
     <!-- Hero Section with Animation Sequence -->
     <section class="hero">
-        <div class="hero-container">
-            <!-- Mansion/Chateau - First to appear -->
-            <div class="mansion-wrapper">
-                <img src="assets/Mansion.png" alt="Mansion illustration" class="mansion">
+        <div class="hero-content">
+            <!-- Left side: Mansion (large backdrop) -->
+            <div class="hero-left">
+                <img src="assets/Mansion.png" alt="Mansion backdrop" class="mansion-hero">
             </div>
 
-            <!-- Botanical decorations - Second to appear -->
-            <div class="decorations-wrapper">
-                <img src="assets/botanical-frame.svg" alt="Botanical decorations" class="decorations">
-            </div>
-
-            <!-- Bride and groom - Third to appear (using GroomDog.png) -->
-            <div class="couple-wrapper">
-                <img src="assets/GroomDog.png" alt="Bride and groom illustration" class="couple">
-            </div>
-
-            <!-- Text overlay - Appears after couple -->
-            <div class="hero-text">
+            <!-- Center: Text content (clean, readable) -->
+            <div class="hero-center">
                 <h1 class="couple-names">
                     <span class="name-line">Eleanor & James</span>
                 </h1>
@@ -35,7 +25,22 @@
                     <span class="date-line">June 15th, 2024</span>
                 </p>
                 <p class="location-line">Paris, France</p>
+                <p class="invitation-text">
+                    Together with their families<br>
+                    request the honor of your presence<br>
+                    at the celebration of their marriage
+                </p>
             </div>
+
+            <!-- Right side: Dog illustration + Decorative elements -->
+            <div class="hero-right">
+                <img src="assets/GroomDog.png" alt="Bride and groom with dog" class="couple-hero">
+                <img src="assets/GuitarMusic.png" alt="Music decoration" class="decoration-music">
+            </div>
+
+            <!-- Floating decorative elements -->
+            <img src="assets/Glasses.png" alt="Champagne glasses" class="floating-glasses">
+            <img src="assets/Cake.png" alt="Wedding cake" class="floating-cake">
         </div>
 
         <!-- Scroll indicator -->
@@ -46,10 +51,11 @@
         </div>
     </section>
 
-    <!-- Our Story Section -->
+    <!-- Story Section with Champagne Bell -->
     <section class="our-story">
         <div class="section-container">
-            <div class="section-header">
+            <div class="story-header">
+                <img src="assets/PressForChampagnBell.png" alt="Champagne bell" class="champagne-bell">
                 <h2>Our Story</h2>
                 <div class="decorative-line"></div>
             </div>
@@ -111,7 +117,7 @@
                         <img src="assets/Cake.png" alt="Dinner icon" class="event-icon">
                     </div>
                     <div class="timeline-content">
-                        <h3>Dinner</h3>
+                        <h3>Dinner & Reception</h3>
                         <p class="time">6:00 PM</p>
                         <p class="description">Grand Dining Hall</p>
                     </div>
