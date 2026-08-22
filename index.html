@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приглашение на свадьбу</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Marck+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,6 +16,10 @@
                 <p class="eyebrow">Приглашаем вас на свадьбу</p>
                 <h1><span>Павел</span><small>&</small><span>Александра</span></h1>
                 <p class="date">25 августа 2026</p>
+                <div class="cover-art">
+                    <img class="mansion-art" src="assets/Mansion.png" alt="Mansion">
+                    <img class="couple-art" src="assets/GroomDog.png" alt="Couple">
+                </div>
                 <p class="scroll-hint">Листайте вниз</p>
             </div>
         </section>
@@ -25,6 +32,8 @@
                     <p class="script-names">Павел &amp; Александра</p>
                     <div class="scroll-date"><b>АВГУСТ</b><strong>25</strong><b>2026</b></div>
                     <p class="venue-small">Дворец Елизаветино<br><span>Ленинградская область</span></p>
+                    <div class="wax-seal">П&amp;А</div>
+                    <img class="floating-art glasses-art" src="assets/Glasses.png" alt="Glasses">
                 </div>
             </div>
         </section>
@@ -32,8 +41,12 @@
             <div class="paper-page venue-page">
                 <p class="eyebrow">Место проведения</p>
                 <h2>Дворец Елизаветино</h2>
+                <div class="venue-art-wrap">
+                    <img class="venue-art" src="assets/venue.png" alt="Venue">
+                    <img class="floating-art venue-flower" src="assets/Flower.png" alt="Flower">
+                </div>
                 <address>Парковая ул., 6А<br>посёлок Елизаветино</address>
-                <a class="map-link" href="https://yandex.ru/maps/2/saint-petersburg/?ll=29.939998%2C59.895000" target="_blank">Открыть маршрут на карте ↗</a>
+                <a class="map-link" href="https://yandex.ru/maps/2/saint-petersburg/?ll=29.939998%2C59.895000" target="_blank">Открыть маршрут на карте <span>↗</span></a>
             </div>
         </section>
         <section class="scene scene-schedule">
@@ -42,33 +55,34 @@
                 <h2>Один день — целая история</h2>
                 <div class="schedule-timeline">
                     <div class="timeline-line"></div>
-                    <div class="schedule-event event-left"><div class="event-copy"><time>14:30</time><h3>Знакомство</h3></div></div>
-                    <div class="schedule-event event-right"><div class="event-copy"><time>15:00</time><h3>Велком</h3></div></div>
-                    <div class="schedule-event event-left"><div class="event-copy"><time>16:00</time><h3>Церемония</h3></div></div>
-                    <div class="schedule-event event-right"><div class="event-copy"><time>17:00</time><h3>Ужин</h3></div></div>
-                    <div class="schedule-event event-left"><div class="event-copy"><time>20:00</time><h3>Торт</h3></div></div>
-                    <div class="schedule-event event-right"><div class="event-copy"><time>21:00</time><h3>Музыка</h3></div></div>
+                    <div class="schedule-event event-left"><div class="event-copy"><time>14:30</time><h3>Знакомство</h3></div><div class="event-art"><img src="assets/Meeting.png" alt="Meeting"></div></div>
+                    <div class="schedule-event event-right"><div class="event-art"><img src="assets/PressForChampagnBell.png" alt="Bell"></div><div class="event-copy"><time>15:00</time><h3>Велком</h3></div></div>
+                    <div class="schedule-event event-left"><div class="event-copy"><time>16:00</time><h3>Церемония</h3></div><div class="event-art"><img src="assets/Ceremony.png" alt="Ceremony"></div></div>
+                    <div class="schedule-event event-right"><div class="event-art"><img src="assets/Dinner.png" alt="Dinner"></div><div class="event-copy"><time>17:00</time><h3>Ужин</h3></div></div>
+                    <div class="schedule-event event-left"><div class="event-copy"><time>20:00</time><h3>Торт</h3></div><div class="event-art"><img src="assets/Cake.png" alt="Cake"></div></div>
+                    <div class="schedule-event event-right"><div class="event-art"><img src="assets/GuitarMusic.png" alt="Music"></div><div class="event-copy"><time>21:00</time><h3>Музыка</h3></div></div>
                 </div>
             </div>
         </section>
         <section class="scene scene-dress">
             <div class="paper-page dress-page">
-                <div class="dress-copy"><p class="eyebrow">Дресс-код</p><h2>Вечерняя одежда в пастельных тонах</h2><p>Будем рады, если вы поддержите<br>нежную палитру нашего вечера.</p><div class="palette"><span class="palette-peach"></span><span class="palette-lilac"></span><span class="palette-mint"></span><span class="palette-rose"></span></div></div>
+                <div class="dress-copy"><p class="eyebrow">Дресс-код</p><h2>Вечерняя одежда в пастельных тонах</h2><p>Будем рады, если вы поддержите<br>нежную палитру нашего вечера.</p><div class="palette"><span class="palette-peach"></span><span class="palette-lilac"></span><span class="palette-mint"></span><span class="palette-rose"></span></div><img class="dress-art" src="assets/DressCode.png" alt="Dress code"></div>
             </div>
         </section>
         <section class="scene scene-note">
             <div class="paper-page note-page">
+                <img class="note-hero-art weather-art" src="assets/Weather.png" alt="Weather">
                 <div class="note-copy"><p class="eyebrow">Детали</p><h2>Питерская погода</h2><p>Пожалуйста, не забывайте, насколько непредсказуема бывает питерская погода.</p><p>Поскольку мероприятие будет проходить на улице, возьмите с собой что-то тёплое.</p></div>
             </div>
         </section>
         <section class="scene scene-gifts">
-            <div class="paper-page note-page"><div class="note-copy"><p class="eyebrow">Подарки</p><h2>Лучший подарок — ваше присутствие</h2><p>Пусть цветы растут на природе, а нам можно подарок в конверте или в стекле.</p></div></div>
+            <div class="paper-page note-page"><img class="note-hero-art gifts-art" src="assets/Gifts.png" alt="Gifts"><div class="note-copy"><p class="eyebrow">Подарки</p><h2>Лучший подарок — ваше присутствие</h2><p>Пусть цветы растут на природе, а нам можно подарок в конверте или в стекле.</p></div></div>
         </section>
         <section class="scene scene-transfer">
-            <div class="paper-page transfer-page"><p class="eyebrow">Трансфер</p><h2>Отправление в Елизаветино</h2><p>по адресу</p><h2>Отправление домой</h2><p>ориентировочно</p></div>
+            <div class="paper-page transfer-page"><p class="eyebrow">Трансфер</p><img class="transfer-art" src="assets/Transfer.png" alt="Transfer"><h2>Отправление в Елизаветино</h2><p>по адресу</p><h2>Отправление домой</h2><p>ориентировочно</p></div>
         </section>
         <section class="scene scene-final">
-            <div class="paper-page final-page"><div class="final-copy"><p class="eyebrow">До встречи</p><h2>Будем ждать вас</h2><p>Разделите с нами радость<br>этого особенного дня.</p><p>Пожалуйста, подтвердите<br>ваше присутствие до <strong>24.08.2026</strong></p><p class="final-names">Павел &amp; Александра</p><p class="final-date">25 · 08 · 2026</p></div></div>
+            <div class="paper-page final-page"><img class="rsvp-art" src="assets/RSVP.png" alt="RSVP"><div class="final-copy"><p class="eyebrow">До встречи</p><h2>Будем ждать вас</h2><p>Разделите с нами радость<br>этого особенного дня.</p><p>Пожалуйста, подтвердите<br>ваше присутствие до <strong>24.08.2026</strong></p><p class="final-names">Павел &amp; Александра</p><p class="final-date">25 · 08 · 2026</p></div></div>
         </section>
     </div>
     <script src="script.js"></script>
