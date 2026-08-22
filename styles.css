@@ -1,5 +1,6 @@
 /* ========================================
    VINTAGE WEDDING INVITATION STYLES
+   AWARD-WINNING LAYOUT
    ======================================== */
 
 /* ---- Root Variables ---- */
@@ -28,9 +29,6 @@
     /* Transitions */
     --transition-smooth: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --transition-ease: all 0.4s ease-out;
-    
-    /* Paper texture (subtle) */
-    --paper-opacity: 0.03;
 }
 
 /* ---- Global Reset ---- */
@@ -123,7 +121,10 @@ strong {
     margin-bottom: var(--spacing-2xl);
 }
 
-/* ---- HERO SECTION ---- */
+/* ========================================
+   HERO SECTION - AWARD-WINNING LAYOUT
+   ======================================== */
+
 .hero {
     min-height: 100vh;
     background: linear-gradient(135deg, var(--cream) 0%, var(--dark-cream) 100%);
@@ -133,72 +134,62 @@ strong {
     align-items: center;
     position: relative;
     overflow: hidden;
+    padding: var(--spacing-2xl) var(--spacing-md);
 }
 
-.hero-container {
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+    max-width: 1400px;
+    width: 100%;
     position: relative;
-    width: 100%;
-    max-width: 1000px;
-    aspect-ratio: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 var(--spacing-md);
-}
-
-/* Mansion - appears first and MUCH BIGGER */
-.mansion-wrapper {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-}
-
-.mansion {
-    width: 95%;
-    height: 95%;
-    max-width: 800px;
-    object-fit: contain;
-    opacity: 0;
-    animation: revealMansion 1.2s ease-out 0.3s forwards;
-    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));
-}
-
-@keyframes revealMansion {
-    from {
-        opacity: 0;
-        transform: scale(0.85) translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
-
-/* Decorations - appear second */
-.decorations-wrapper {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     z-index: 2;
 }
 
-.decorations {
-    width: 110%;
-    height: 110%;
-    max-width: 900px;
-    object-fit: contain;
+/* ---- LEFT COLUMN: MANSION BACKDROP ---- */
+.hero-left {
+    position: relative;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     opacity: 0;
-    animation: revealDecorations 1.4s ease-out 1.2s forwards;
+    animation: slideInLeft 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards;
 }
 
-@keyframes revealDecorations {
+.mansion-hero {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ---- CENTER COLUMN: CLEAR TEXT HIERARCHY ---- */
+.hero-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeInScale 1s ease-out 0.4s forwards;
+}
+
+@keyframes fadeInScale {
     from {
         opacity: 0;
         transform: scale(0.95);
@@ -209,49 +200,39 @@ strong {
     }
 }
 
-/* Couple - appear third and MUCH SMALLER */
-.couple-wrapper {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 3;
-}
-
-.couple {
-    width: 35%;
-    height: 35%;
-    max-width: 250px;
-    object-fit: contain;
+.couple-names {
+    font-size: 3.2rem;
+    letter-spacing: 0.12em;
+    margin-bottom: var(--spacing-sm);
     opacity: 0;
-    animation: revealCouple 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 2.2s forwards;
-    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.08));
+    animation: slideDown 0.8s ease-out 0.6s forwards;
 }
 
-@keyframes revealCouple {
+@keyframes slideDown {
     from {
         opacity: 0;
-        transform: scale(0.8);
+        transform: translateY(-20px);
     }
     to {
         opacity: 1;
-        transform: scale(1);
+        transform: translateY(0);
     }
 }
 
-/* Hero text overlay */
-.hero-text {
-    position: relative;
-    z-index: 10;
-    text-align: center;
-    margin-top: var(--spacing-2xl);
-    opacity: 0;
-    animation: fadeInText 1s ease-out 3s forwards;
+.name-line {
+    display: block;
+    font-weight: normal;
 }
 
-@keyframes fadeInText {
+.wedding-date {
+    font-size: 1.3rem;
+    letter-spacing: 0.15em;
+    margin-bottom: var(--spacing-xs);
+    opacity: 0;
+    animation: slideUp 0.8s ease-out 0.8s forwards;
+}
+
+@keyframes slideUp {
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -262,58 +243,25 @@ strong {
     }
 }
 
-.couple-names {
-    font-size: 2.8rem;
-    letter-spacing: 0.08em;
-    margin-bottom: var(--spacing-sm);
-}
-
-.name-line {
-    display: inline-block;
-    opacity: 0;
-    animation: slideInName 1s ease-out 3.2s forwards;
-}
-
-@keyframes slideInName {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-.wedding-date {
-    font-size: 1.2rem;
-    letter-spacing: 0.1em;
-    opacity: 0;
-    animation: slideInDate 1s ease-out 3.4s forwards;
-    margin-bottom: var(--spacing-xs);
-}
-
-.date-line {
-    display: inline-block;
-}
-
-@keyframes slideInDate {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
 .location-line {
-    font-size: 1rem;
-    letter-spacing: 0.05em;
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
     color: var(--dusty-olive);
+    margin-bottom: var(--spacing-md);
     opacity: 0;
-    animation: fadeIn 0.8s ease-out 3.6s forwards;
+    animation: fadeIn 0.8s ease-out 1s forwards;
+}
+
+.invitation-text {
+    font-size: 1rem;
+    line-height: 1.9;
+    letter-spacing: 0.05em;
+    color: var(--charcoal);
+    opacity: 0.9;
+    margin-bottom: 0;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 1.2s forwards;
+    font-style: italic;
 }
 
 @keyframes fadeIn {
@@ -325,7 +273,120 @@ strong {
     }
 }
 
-/* Scroll indicator */
+/* ---- RIGHT COLUMN: DOG + DECORATIONS ---- */
+.hero-right {
+    position: relative;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: slideInRight 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.couple-hero {
+    width: 85%;
+    height: 85%;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.12));
+    position: relative;
+    z-index: 3;
+    animation: gently-bob 3s ease-in-out infinite;
+}
+
+@keyframes gently-bob {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.decoration-music {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    bottom: 20px;
+    right: 0;
+    object-fit: contain;
+    opacity: 0;
+    animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.5s forwards;
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.08));
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0) rotate(-30deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* ---- FLOATING DECORATIVE ELEMENTS ---- */
+.floating-glasses {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 15%;
+    left: 5%;
+    object-fit: contain;
+    opacity: 0;
+    animation: floatInAndBounce 1s cubic-bezier(0.34, 1.56, 0.64, 1) 1.2s forwards,
+               float 4s ease-in-out 2.2s infinite;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.08));
+    z-index: 1;
+}
+
+.floating-cake {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    bottom: 15%;
+    right: 8%;
+    object-fit: contain;
+    opacity: 0;
+    animation: floatInAndBounce 1s cubic-bezier(0.34, 1.56, 0.64, 1) 1.4s forwards,
+               float 4s ease-in-out 2.4s infinite;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.08));
+    z-index: 1;
+}
+
+@keyframes floatInAndBounce {
+    from {
+        opacity: 0;
+        transform: scale(0) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(-5deg);
+    }
+}
+
+/* ---- SCROLL INDICATOR ---- */
 .scroll-indicator {
     position: absolute;
     bottom: var(--spacing-lg);
@@ -336,6 +397,7 @@ strong {
     opacity: 0.6;
     transition: opacity 0.3s ease;
     z-index: 20;
+    cursor: pointer;
 }
 
 .scroll-indicator:hover {
@@ -361,11 +423,31 @@ strong {
     pointer-events: none;
 }
 
-/* ---- OUR STORY SECTION ---- */
+/* ========================================
+   OUR STORY SECTION
+   ======================================== */
+
 .our-story {
     background: linear-gradient(180deg, var(--cream) 0%, var(--dark-cream) 100%);
     padding: var(--spacing-2xl) var(--spacing-md);
     margin: var(--spacing-2xl) 0;
+    position: relative;
+}
+
+.story-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+    position: relative;
+}
+
+.champagne-bell {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-md);
+    object-fit: contain;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.08));
+    opacity: 0;
+    animation: slideDown 0.8s ease-out forwards;
 }
 
 .story-content {
@@ -383,31 +465,9 @@ strong {
     animation: slideInLeft 1s ease-out forwards;
 }
 
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
 .story-illustration {
     opacity: 0;
     animation: slideInRight 1s ease-out 0.2s forwards;
-}
-
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
 }
 
 .garden-img {
@@ -419,7 +479,10 @@ strong {
     filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.08));
 }
 
-/* ---- THE DAY SECTION ---- */
+/* ========================================
+   THE DAY SECTION
+   ======================================== */
+
 .the-day {
     background: var(--cream);
     padding: var(--spacing-2xl) var(--spacing-md);
@@ -440,7 +503,6 @@ strong {
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
-/* Stagger animation for timeline items */
 .timeline-item:nth-child(1) { animation-delay: 0.1s; }
 .timeline-item:nth-child(3) { animation-delay: 0.3s; }
 .timeline-item:nth-child(5) { animation-delay: 0.5s; }
@@ -459,8 +521,8 @@ strong {
 
 .timeline-icon {
     flex-shrink: 0;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     background: var(--dark-cream);
     border: 2px solid var(--dusty-olive);
     border-radius: 50%;
@@ -469,6 +531,7 @@ strong {
     align-items: center;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
 .timeline-icon::before {
@@ -497,18 +560,19 @@ strong {
 }
 
 .event-icon {
-    width: 55px;
-    height: 55px;
+    width: 70px;
+    height: 70px;
     object-fit: contain;
     z-index: 2;
 }
 
 .timeline-content h3 {
     margin-bottom: var(--spacing-xs);
+    font-size: 1.3rem;
 }
 
 .timeline-content .time {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--dusty-olive);
     font-weight: 600;
     letter-spacing: 0.05em;
@@ -516,20 +580,23 @@ strong {
 }
 
 .timeline-content .description {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--charcoal);
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
 .timeline-divider {
     width: 2px;
-    height: 40px;
+    height: 60px;
     background: linear-gradient(to bottom, var(--dusty-olive), transparent);
-    margin-left: 39px;
+    margin-left: 49px;
     opacity: 0.4;
 }
 
-/* ---- DETAILS SECTION ---- */
+/* ========================================
+   DETAILS SECTION
+   ======================================== */
+
 .details {
     background: linear-gradient(180deg, var(--dark-cream) 0%, var(--cream) 100%);
     padding: var(--spacing-2xl) var(--spacing-md);
@@ -538,7 +605,7 @@ strong {
 
 .details-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-2xl);
 }
@@ -546,14 +613,14 @@ strong {
 .detail-card {
     background: var(--cream);
     padding: var(--spacing-lg);
-    border: 1px solid var(--dusty-olive);
+    border: 2px solid var(--dusty-olive);
     border-opacity: 0.3;
     opacity: 0;
     animation: scaleInCard 0.6s ease-out forwards;
     transition: var(--transition-ease);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
-/* Stagger detail cards */
 .detail-card:nth-child(1) { animation-delay: 0.1s; }
 .detail-card:nth-child(2) { animation-delay: 0.2s; }
 .detail-card:nth-child(3) { animation-delay: 0.3s; }
@@ -572,7 +639,8 @@ strong {
 
 .detail-card:hover {
     border-color: var(--dusty-olive);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
 }
 
 .detail-card h3 {
@@ -596,7 +664,7 @@ strong {
     margin: 0 auto;
     padding: var(--spacing-lg);
     background: rgba(155, 156, 127, 0.05);
-    border-left: 3px solid var(--dusty-olive);
+    border-left: 4px solid var(--dusty-olive);
     opacity: 0;
     animation: slideInLeft 0.8s ease-out 0.5s forwards;
 }
@@ -611,7 +679,10 @@ strong {
     margin-bottom: 0;
 }
 
-/* ---- GALLERY SECTION ---- */
+/* ========================================
+   GALLERY SECTION
+   ======================================== */
+
 .gallery {
     background: var(--cream);
     padding: var(--spacing-2xl) var(--spacing-md);
@@ -629,14 +700,14 @@ strong {
     overflow: hidden;
     aspect-ratio: 1;
     background: var(--dark-cream);
-    border: 1px solid var(--dusty-olive);
+    border: 2px solid var(--dusty-olive);
     border-opacity: 0.2;
     opacity: 0;
     animation: fadeInUp 0.8s ease-out forwards;
     cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
-/* Stagger gallery items */
 .gallery-item:nth-child(1) { animation-delay: 0.1s; }
 .gallery-item:nth-child(2) { animation-delay: 0.2s; }
 .gallery-item:nth-child(3) { animation-delay: 0.3s; }
@@ -669,7 +740,10 @@ strong {
     opacity: 1;
 }
 
-/* ---- CLOSING SECTION ---- */
+/* ========================================
+   CLOSING SECTION
+   ======================================== */
+
 .closing {
     background: linear-gradient(180deg, var(--dark-cream) 0%, var(--cream) 100%);
     padding: var(--spacing-2xl) var(--spacing-md);
@@ -718,7 +792,10 @@ strong {
     font-weight: 500;
 }
 
-/* ---- FOOTER ---- */
+/* ========================================
+   FOOTER
+   ======================================== */
+
 footer {
     background: var(--charcoal);
     color: var(--cream);
@@ -729,7 +806,10 @@ footer {
     margin-top: var(--spacing-2xl);
 }
 
-/* ---- SCROLL ANIMATIONS ---- */
+/* ========================================
+   ANIMATIONS & UTILITIES
+   ======================================== */
+
 .scroll-reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -741,11 +821,21 @@ footer {
     transition: var(--transition-smooth);
 }
 
-.parallax {
-    will-change: transform;
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* ---- PREFERS REDUCED MOTION ---- */
+/* ========================================
+   PREFERS REDUCED MOTION
+   ======================================== */
+
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
@@ -767,7 +857,10 @@ footer {
     }
 }
 
-/* ---- TABLET RESPONSIVE ---- */
+/* ========================================
+   TABLET RESPONSIVE (768px)
+   ======================================== */
+
 @media (max-width: 768px) {
     :root {
         --spacing-xl: 2rem;
@@ -775,86 +868,88 @@ footer {
     }
     
     h1 {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
     }
     
     h2 {
         font-size: 1.8rem;
     }
     
-    h3 {
-        font-size: 1.2rem;
-    }
-    
-    /* Hero adjustments */
-    .hero-container {
-        max-width: 100%;
-        padding: 0 var(--spacing-md);
-        aspect-ratio: auto;
-        min-height: 600px;
-    }
-    
-    .mansion {
-        width: 90%;
-        height: 90%;
-        max-width: 600px;
-    }
-    
-    .couple {
-        width: 30%;
-        height: 30%;
-        max-width: 200px;
-    }
-    
-    .couple-names {
-        font-size: 2rem;
-    }
-    
-    .wedding-date {
-        font-size: 1rem;
-    }
-    
-    /* Story section - stack columns */
-    .story-content {
-        grid-template-columns: 1fr;
+    /* Hero adjustment */
+    .hero-content {
+        grid-template-columns: 1fr 1fr;
         gap: var(--spacing-lg);
     }
     
-    .story-illustration {
-        margin-top: var(--spacing-md);
+    .hero-left {
+        height: 400px;
+        order: 2;
     }
     
-    .garden-img {
-        max-width: 250px;
+    .hero-center {
+        order: 1;
+        grid-column: 1 / -1;
+        margin-bottom: var(--spacing-lg);
     }
     
-    /* Timeline adjustments */
-    .timeline-icon {
-        width: 70px;
-        height: 70px;
+    .hero-right {
+        height: 400px;
+        order: 3;
     }
     
-    .event-icon {
-        width: 45px;
-        height: 45px;
+    .couple-names {
+        font-size: 2.2rem;
     }
     
-    /* Details grid - responsive */
-    .details-grid {
+    .wedding-date {
+        font-size: 1.1rem;
+    }
+    
+    .invitation-text {
+        font-size: 0.95rem;
+    }
+    
+    .mansion-hero {
+        width: 90%;
+    }
+    
+    .couple-hero {
+        width: 90%;
+    }
+    
+    .floating-glasses {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .floating-cake {
+        width: 90px;
+        height: 90px;
+    }
+    
+    /* Story section */
+    .story-content {
         grid-template-columns: 1fr;
     }
     
-    /* Gallery grid - mobile */
+    /* Timeline */
+    .timeline-icon {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .event-icon {
+        width: 55px;
+        height: 55px;
+    }
+    
+    /* Gallery */
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-md);
     }
     
-    .detail-card {
-        padding: var(--spacing-md);
-    }
-    
-    /* Section padding */
+    /* Sections */
     .our-story,
     .the-day,
     .details,
@@ -865,7 +960,10 @@ footer {
     }
 }
 
-/* ---- MOBILE RESPONSIVE ---- */
+/* ========================================
+   MOBILE RESPONSIVE (480px)
+   ======================================== */
+
 @media (max-width: 480px) {
     :root {
         --spacing-lg: 1.5rem;
@@ -889,29 +987,28 @@ footer {
         font-size: 0.95rem;
     }
     
-    /* Hero section optimized for mobile */
+    /* Hero section */
     .hero {
-        min-height: 80vh;
-        padding-bottom: var(--spacing-xl);
+        min-height: auto;
+        padding: var(--spacing-xl) var(--spacing-sm);
     }
     
-    .hero-container {
-        aspect-ratio: auto;
-        min-height: 400px;
-        max-width: 100%;
-        padding: 0 var(--spacing-sm);
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
     }
     
-    .mansion {
+    .hero-left,
+    .hero-right {
+        height: 300px;
+    }
+    
+    .mansion-hero {
         width: 85%;
-        height: 85%;
-        max-width: 400px;
     }
     
-    .couple {
-        width: 25%;
-        height: 25%;
-        max-width: 120px;
+    .couple-hero {
+        width: 85%;
     }
     
     .couple-names {
@@ -919,42 +1016,69 @@ footer {
     }
     
     .wedding-date {
+        font-size: 0.95rem;
+    }
+    
+    .invitation-text {
         font-size: 0.9rem;
     }
     
-    .scroll-indicator {
-        bottom: var(--spacing-md);
+    .floating-glasses,
+    .floating-cake {
+        width: 60px;
+        height: 60px;
+        opacity: 0.7;
     }
     
+    .floating-glasses {
+        top: 10%;
+        left: 3%;
+    }
+    
+    .floating-cake {
+        bottom: 10%;
+        right: 3%;
+    }
+    
+    /* Story section */
+    .story-header {
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .champagne-bell {
+        width: 60px;
+        height: 60px;
+    }
+    
+    /* Timeline */
     .timeline-item {
         flex-direction: column;
         gap: var(--spacing-md);
     }
     
     .timeline-icon {
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
         margin: 0 auto;
+    }
+    
+    .event-icon {
+        width: 45px;
+        height: 45px;
     }
     
     .timeline-divider {
         width: 0;
         height: 0;
-        margin: 0;
     }
     
     .timeline-content {
         text-align: center;
     }
     
-    .event-icon {
-        width: 35px;
-        height: 35px;
-    }
-    
+    /* Gallery */
     .gallery-grid {
         grid-template-columns: 1fr;
-        gap: var(--spacing-md);
     }
     
     .closing-img {
@@ -962,7 +1086,7 @@ footer {
     }
     
     .decorative-line {
-        width: 3rem;
+        width: 2.5rem;
     }
     
     .section-container {
@@ -970,7 +1094,10 @@ footer {
     }
 }
 
-/* ---- Print Styles ---- */
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
 @media print {
     .scroll-indicator,
     footer {
