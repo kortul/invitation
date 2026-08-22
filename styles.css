@@ -110,8 +110,9 @@ body {
 
 .mansion-illustration {
     width: 70%;
-    max-width: 500px;
+    max-width: 600px;
     height: auto;
+    object-fit: contain;
     opacity: 0;
     transform: scale(0.95) translateY(20px);
     transition: opacity var(--transition-slow), transform var(--transition-slow);
@@ -147,29 +148,14 @@ body {
     width: 80%;
 }
 
-.left-border {
-    left: 2%;
-    top: 50%;
-    transform: translateY(-50%) rotate(-90deg);
-    width: 60%;
-}
-
-.right-border {
-    right: 2%;
-    top: 50%;
-    transform: translateY(-50%) rotate(90deg);
-    width: 60%;
-}
-
-.border-decoration,
-.corner-flower {
+.border-decoration {
     width: 100%;
     height: auto;
 }
 
 .corner-decoration {
     position: absolute;
-    width: 120px;
+    width: 100px;
     opacity: 0;
     transition: opacity var(--transition-slow);
 }
@@ -194,6 +180,11 @@ body {
     right: 3%;
 }
 
+.corner-flower {
+    width: 100%;
+    height: auto;
+}
+
 .decorations-revealed .botanical-border,
 .decorations-revealed .corner-decoration {
     opacity: 1;
@@ -214,9 +205,10 @@ body {
 }
 
 .couple-illustration {
-    width: 40%;
-    max-width: 300px;
+    width: 45%;
+    max-width: 350px;
     height: auto;
+    object-fit: contain;
     opacity: 0;
     transform: translateY(30px);
     transition: opacity var(--transition-slow), transform var(--transition-slow);
@@ -363,6 +355,7 @@ body {
 .section-illustration {
     width: 200px;
     height: auto;
+    object-fit: contain;
     margin-bottom: var(--spacing-md);
     opacity: 0.9;
 }
@@ -461,12 +454,13 @@ body {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
+    overflow: hidden;
 }
 
 .timeline-illustration {
-    width: 40px;
+    width: 60%;
     height: auto;
-    opacity: 0.8;
+    object-fit: contain;
 }
 
 .timeline-content {
@@ -608,6 +602,7 @@ body {
 .closing-illustration {
     width: 150px;
     height: auto;
+    object-fit: contain;
     margin-bottom: var(--spacing-lg);
     opacity: 0.9;
 }
@@ -690,7 +685,7 @@ body {
     }
     
     .mansion-illustration {
-        width: 85%;
+        width: 90%;
         max-width: none;
     }
     
@@ -699,17 +694,12 @@ body {
         width: 90%;
     }
     
-    .left-border,
-    .right-border {
-        display: none;
-    }
-    
     .corner-decoration {
-        width: 80px;
+        width: 70px;
     }
     
     .couple-illustration {
-        width: 55%;
+        width: 65%;
         max-width: none;
     }
     
@@ -752,7 +742,7 @@ body {
     }
     
     .timeline-illustration {
-        width: 30px;
+        width: 70%;
     }
     
     .timeline-content {
