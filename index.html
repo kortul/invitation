@@ -14,12 +14,12 @@
   <main class="invitation">
     <section class="scene scene-cover" aria-label="Приглашение на свадьбу">
       <div class="paper-page page-cover">
-        <p class="eyebrow">Приглашаем вас на свадьбу</p>
-        <h1><span>Павел</span><small>&amp;</small><span>Александра</span></h1>
-        <p class="date">25 августа 2026</p>
+        <p class="eyebrow hero-reveal hero-reveal-1">Приглашаем вас на свадьбу</p>
+        <h1 class="hero-reveal hero-reveal-2"><span>Павел</span><small>&amp;</small><span>Александра</span></h1>
+        <p class="date hero-reveal hero-reveal-3">25 августа 2026</p>
         <div class="cover-art">
-          <img src="assets/Mansion.png" alt="Дворец Елизаветино" class="mansion-art">
-          <img src="assets/GroomDog.png" alt="Иллюстрация пары" class="couple-art">
+          <img src="assets/Mansion.png" alt="Дворец Елизаветино" class="mansion-art hero-mansion">
+          <img src="assets/GroomDog.png" alt="Жених и невеста" class="couple-art hero-couple">
         </div>
         <p class="scroll-hint">Листайте вниз <i></i></p>
       </div>
@@ -57,15 +57,33 @@
       <div class="paper-page schedule-page">
         <p class="eyebrow">Распорядок дня</p>
         <h2>Один день —<br><em>целая история</em></h2>
-        <div class="schedule-art"><img src="assets/PressForChampagnBell.png" alt="" class="schedule-main-art"></div>
-        <ol class="schedule">
-          <li><time>16:00</time><span>Знакомство с усадьбой</span></li>
-          <li><time>16:30</time><span>Велком</span></li>
-          <li><time>17:00</time><span>Церемония</span></li>
-          <li><time>18:00</time><span>Ужин</span></li>
-          <li><time>19:45</time><span>Торт</span></li>
-          <li><time>20:00</time><span>Музыка</span></li>
-        </ol>
+        <div class="schedule-timeline">
+          <div class="timeline-line" aria-hidden="true"></div>
+          <article class="schedule-event event-left">
+            <div class="event-copy"><time>16:00</time><h3>Знакомство<br>с усадьбой</h3></div>
+            <div class="event-art"><img src="assets/botanical-top.svg" alt="Цветы"></div>
+          </article>
+          <article class="schedule-event event-right">
+            <div class="event-copy"><time>16:30</time><h3>Велком</h3></div>
+            <div class="event-art"><img src="assets/PressForChampagnBell.png" alt="Приглашение к шампанскому"></div>
+          </article>
+          <article class="schedule-event event-left">
+            <div class="event-copy"><time>17:00</time><h3>Церемония</h3></div>
+            <div class="event-art"><img src="assets/GroomDog.png" alt="Иллюстрация жениха"></div>
+          </article>
+          <article class="schedule-event event-right">
+            <div class="event-copy"><time>18:00</time><h3>Ужин</h3></div>
+            <div class="event-art"><img src="assets/Glasses.png" alt="Праздничные бокалы"></div>
+          </article>
+          <article class="schedule-event event-left">
+            <div class="event-copy"><time>19:45</time><h3>Торт</h3></div>
+            <div class="event-art"><img src="assets/Cake.png" alt="Свадебный торт"></div>
+          </article>
+          <article class="schedule-event event-right">
+            <div class="event-copy"><time>20:00</time><h3>Музыка</h3></div>
+            <div class="event-art"><img src="assets/GuitarMusic.png" alt="Музыка"></div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -75,9 +93,7 @@
           <p class="eyebrow">Дресс-код</p>
           <h2>Вечерняя одежда<br><em>в пастельных тонах</em></h2>
           <p>Будем рады, если вы поддержите<br>нежную палитру нашего вечера.</p>
-          <div class="palette" aria-label="Пастельная палитра">
-            <span class="palette-peach"></span><span class="palette-lilac"></span><span class="palette-mint"></span><span class="palette-rose"></span>
-          </div>
+          <div class="palette" aria-label="Пастельная палитра"><span class="palette-peach"></span><span class="palette-lilac"></span><span class="palette-mint"></span><span class="palette-rose"></span></div>
         </div>
         <img src="assets/Cake.png" alt="Свадебный торт" class="dress-art">
       </div>
