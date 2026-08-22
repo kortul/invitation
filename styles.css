@@ -1,6 +1,6 @@
 :root {
     --primary-color: #2c3e50;
-    --secondary-color: #71879A;
+    --secondary-color: #87967B;
     --accent-color: #e8d5b5;
     --text-color: #333;
     --light-bg: #f9f7f2;
@@ -204,8 +204,8 @@ body {
 }
 
 .timeline-icon img {
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
     object-fit: contain;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
     transition: transform 0.3s ease;
