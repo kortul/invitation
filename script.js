@@ -11,7 +11,43 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initParallax();
     initHoverEffects();
+    initHeroFadeOut();
 });
+
+// ========================================
+// HERO FADE OUT ON SCROLL
+// ========================================
+
+/**
+ * Fades out the hero section as user scrolls down
+ */
+function initHeroFadeOut() {
+    const hero = document.querySelector('.hero');
+    
+    if (!hero) return;
+    
+    window.addEventListener('scroll', () => {
+        const scrollPercent = window.scrollY / hero.clientHeight;
+        
+        // Fade hero from 1 to 0.3 over the hero height
+        if (scrollPercent < 1) {
+            const opacity = 1 - (scrollPercent * 0.7); // Goes from 1 to 0.3
+            hero.style.opacity = opacity;
+            
+            // Add fade-out class for additional styling when fully faded
+            if (opacity < 0.5) {
+                hero.classList.add('fade-out');
+            }
+        } else {
+            hero.classList.add('fade-out');
+        }
+        
+        // Reset when scrolling back up
+        if (scrollPercent < 0.1) {
+            hero.classList.remove('fade-out');
+        }
+    });
+}
 
 // ========================================
 // SCROLL-TRIGGERED ANIMATIONS
