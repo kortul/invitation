@@ -15,10 +15,15 @@
     --color-gold: #C9B896;
     --color-burgundy: #8B5A5A;
     
+    /* Pastel colors */
+    --pastel-peach: #E8D5C4;
+    --pastel-lavender: #D4C5D9;
+    --pastel-mint: #C9E4DE;
+    --pastel-rose: #F2D7D5;
+    
     /* Typography */
     --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-script: 'Pinyon Script', cursive;
-    --font-script-alt: 'Great Vibes', cursive;
     
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -289,13 +294,16 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
-    text-align: center;
 }
 
 .detail-block {
     padding: var(--spacing-lg);
     background: var(--color-paper);
     border: 1px solid var(--color-sage);
+}
+
+.detail-block.full-width {
+    grid-column: 1 / -1;
 }
 
 .detail-title {
@@ -321,6 +329,66 @@ body {
 .detail-text em {
     font-style: italic;
     color: var(--color-dusty-rose);
+}
+
+.map-link {
+    display: inline-block;
+    margin-top: var(--spacing-sm);
+    color: var(--color-olive);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color var(--transition-fast);
+}
+
+.map-link:hover {
+    color: var(--color-burgundy);
+}
+
+/* Schedule */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+}
+
+.schedule-item {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: baseline;
+}
+
+.schedule-time {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-olive);
+    min-width: 60px;
+}
+
+.schedule-event {
+    font-size: 1rem;
+    color: var(--color-ink-light);
+    line-height: 1.5;
+}
+
+/* Color Palette */
+.color-palette {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+    justify-content: center;
+}
+
+.color-swatch {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform var(--transition-fast);
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
 }
 
 /* ============================================
@@ -402,6 +470,24 @@ body {
         padding: var(--spacing-md);
     }
     
+    .schedule-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xs);
+    }
+    
+    .schedule-item {
+        justify-content: center;
+    }
+    
+    .color-palette {
+        gap: var(--spacing-xs);
+    }
+    
+    .color-swatch {
+        width: 40px;
+        height: 40px;
+    }
+    
     .closing-illustration {
         width: 140px;
     }
@@ -434,6 +520,11 @@ body {
     
     .date-line {
         width: 40px;
+    }
+    
+    .schedule-time {
+        font-size: 1rem;
+        min-width: 50px;
     }
 }
 
