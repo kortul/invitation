@@ -10,8 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const mansion = document.getElementById('mansion');
     const couple = document.getElementById('couple');
-    const heroText = document.querySelector('.invitation-text');
+    const heroText = document.querySelector('.hero-text');
     const heroSection = document.querySelector('.hero');
+    const decorTop = document.querySelector('.decor-top');
+    const decorBottom = document.querySelector('.decor-bottom');
     
     // Sequence: Mansion → Decorations → Couple → Text
     function playHeroSequence() {
@@ -24,7 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Step 2: Reveal decorations
         setTimeout(() => {
-            heroSection.classList.add('decorations-revealed');
+            if (decorTop) decorTop.style.opacity = '1';
+            if (decorBottom) decorBottom.style.opacity = '1';
         }, 1200);
         
         // Step 3: Reveal couple
@@ -108,17 +111,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // PARALLAX EFFECT FOR HERO
     // ============================================
     
-    const heroLayers = document.querySelectorAll('.hero-layer');
+    const heroMansion = document.querySelector('.hero-mansion');
     
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
         const heroHeight = document.querySelector('.hero').offsetHeight;
         
-        if (scrolled < heroHeight) {
-            heroLayers.forEach((layer, index) => {
-                const speed = 0.05 + (index * 0.02);
-                layer.style.transform = `translateY(${scrolled * speed}px)`;
-            });
+        if (scrolled < heroHeight && heroMansion) {
+            const speed = 0.05;
+            heroMansion.style.transform = `translateY(${scrolled * speed}px) scale(1)`;
         }
     });
     
@@ -141,23 +142,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     images.forEach(img => {
         imageObserver.observe(img);
-    });
-    
-    // ============================================
-    // ELEGANT HOVER EFFECTS
-    // ============================================
-    
-    const detailCards = document.querySelectorAll('.detail-card');
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    
-    detailCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
     });
     
     // ============================================

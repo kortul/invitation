@@ -1,5 +1,5 @@
 /* ============================================
-   VINTAGE WEDDING INVITATION - STYLES
+   VINTAGE WEDDING INVITATION - MODERN LAYOUT
    ============================================ */
 
 /* CSS Variables */
@@ -68,30 +68,22 @@ body {
 }
 
 /* ============================================
-   HERO SECTION
+   HERO SECTION - CLEAN LAYOUT
    ============================================ */
 
 .hero {
     position: relative;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    padding: var(--spacing-xl);
     background: linear-gradient(180deg, var(--color-paper) 0%, var(--color-paper-dark) 100%);
+    overflow: hidden;
 }
 
-.hero-content {
-    position: relative;
-    width: 100%;
-    max-width: 900px;
-    height: 85vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero-layer {
+.hero-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -100,17 +92,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1;
     pointer-events: none;
 }
 
-/* Mansion */
-.mansion-layer {
-    z-index: 1;
-}
-
-.mansion-illustration {
-    width: 70%;
-    max-width: 600px;
+.hero-mansion {
+    width: 60%;
+    max-width: 500px;
     height: auto;
     object-fit: contain;
     opacity: 0;
@@ -118,95 +106,63 @@ body {
     transition: opacity var(--transition-slow), transform var(--transition-slow);
 }
 
-.mansion-illustration.revealed {
+.hero-mansion.revealed {
     opacity: 1;
     transform: scale(1) translateY(0);
 }
 
-/* Decorations */
-.decorations-layer {
+.hero-content {
+    position: relative;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    width: 100%;
 }
 
-.botanical-border {
+.hero-decorations {
     position: absolute;
-    opacity: 0;
-    transition: opacity var(--transition-slow);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
 
-.top-border {
+.decor-top {
+    position: absolute;
     top: 2%;
     left: 50%;
     transform: translateX(-50%);
-    width: 80%;
-}
-
-.bottom-border {
-    bottom: 2%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-}
-
-.border-decoration {
-    width: 100%;
+    width: 70%;
     height: auto;
-}
-
-.corner-decoration {
-    position: absolute;
-    width: 100px;
     opacity: 0;
     transition: opacity var(--transition-slow);
 }
 
-.top-left {
-    top: 3%;
-    left: 3%;
-}
-
-.top-right {
-    top: 3%;
-    right: 3%;
-}
-
-.bottom-left {
-    bottom: 3%;
-    left: 3%;
-}
-
-.bottom-right {
-    bottom: 3%;
-    right: 3%;
-}
-
-.corner-flower {
-    width: 100%;
+.decor-bottom {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
     height: auto;
+    opacity: 0;
+    transition: opacity var(--transition-slow);
 }
 
-.decorations-revealed .botanical-border,
-.decorations-revealed .corner-decoration {
-    opacity: 1;
-}
-
-/* Couple */
-.couple-layer {
-    z-index: 3;
-}
-
-.couple-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
+.hero-main {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: var(--spacing-lg) 0;
 }
 
-.couple-illustration {
-    width: 45%;
-    max-width: 350px;
+.hero-couple {
+    width: 35%;
+    max-width: 280px;
     height: auto;
     object-fit: contain;
     opacity: 0;
@@ -214,26 +170,19 @@ body {
     transition: opacity var(--transition-slow), transform var(--transition-slow);
 }
 
-.couple-illustration.revealed {
+.hero-couple.revealed {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Text */
-.text-layer {
-    z-index: 4;
-    pointer-events: auto;
-}
-
-.invitation-text {
+.hero-text {
     text-align: center;
-    padding: var(--spacing-md);
     opacity: 0;
     transform: translateY(20px);
     transition: opacity var(--transition-slow), transform var(--transition-slow);
 }
 
-.invitation-text.revealed {
+.hero-text.revealed {
     opacity: 1;
     transform: translateY(0);
 }
@@ -278,6 +227,7 @@ body {
     text-align: center;
     opacity: 0;
     animation: fadeInUp 1s ease 2s forwards;
+    z-index: 3;
 }
 
 .scroll-indicator span {
@@ -442,8 +392,8 @@ body {
 }
 
 .timeline-icon {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     background: var(--color-paper);
     border: 2px solid var(--color-olive);
     border-radius: 50%;
@@ -455,11 +405,12 @@ body {
     transform: translateX(-50%);
     z-index: 1;
     overflow: hidden;
+    padding: var(--spacing-xs);
 }
 
 .timeline-illustration {
-    width: 60%;
-    height: auto;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }
 
@@ -680,26 +631,18 @@ body {
     }
     
     /* Hero Mobile */
-    .hero-content {
-        height: 90vh;
-    }
-    
-    .mansion-illustration {
-        width: 90%;
+    .hero-mansion {
+        width: 80%;
         max-width: none;
     }
     
-    .top-border,
-    .bottom-border {
-        width: 90%;
+    .decor-top,
+    .decor-bottom {
+        width: 85%;
     }
     
-    .corner-decoration {
-        width: 70px;
-    }
-    
-    .couple-illustration {
-        width: 65%;
+    .hero-couple {
+        width: 50%;
         max-width: none;
     }
     
@@ -726,23 +669,19 @@ body {
     
     /* Timeline Mobile */
     .timeline::before {
-        left: 30px;
+        left: 35px;
     }
     
     .timeline-item {
         flex-direction: column;
         align-items: flex-start;
-        margin-left: 60px;
+        margin-left: 70px;
     }
     
     .timeline-icon {
-        left: 30px;
-        width: 60px;
-        height: 60px;
-    }
-    
-    .timeline-illustration {
-        width: 70%;
+        left: 35px;
+        width: 70px;
+        height: 70px;
     }
     
     .timeline-content {
