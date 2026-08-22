@@ -1,140 +1,184 @@
-# 🎊 Quick Start Guide
+# 🚀 Быстрый старт
 
-## Get Your Wedding Invitation Online in 3 Minutes
+## 1. Локальный запуск (за 30 секунд)
 
-### Step 1: Enable GitHub Pages (1 minute)
+```bash
+# Клонируйте репозиторий
+git clone https://github.com/kortul/invitation.git
+cd invitation
 
-1. Go to your repo settings: https://github.com/kortul/invitation/settings
-2. Scroll down to **Pages** (on the left sidebar)
-3. Under "Build and deployment":
-   - Select **Branch**: `main`
-   - Select **Folder**: `/ (root)`
-4. Click **Save**
-5. Wait 1-2 minutes...
-
-✅ **Done!** Your site is now live at: **https://kortul.github.io/invitation/**
-
----
-
-### Step 2: Customize Your Details (1 minute)
-
-**Easy way - Edit in browser:**
-
-1. Go to: https://github.com/kortul/invitation
-2. Click on **index.html**
-3. Click the ✏️ **Edit** button
-4. Find and replace:
-   - `Eleanor & James` → Your names
-   - `June 15th, 2024` → Your date
-   - `Paris, France` → Your location
-5. Scroll down and click **Commit changes...**
-6. Click **Commit changes** again
-
-✅ **Your site updates automatically in 1-2 minutes!**
-
----
-
-### Step 3: Share Your Link (1 minute)
-
-That's it! Share this link with guests:
-
-```
-https://kortul.github.io/invitation/
+# Откройте в браузере
+# Mac: open index.html
+# Windows: start index.html
+# Linux: xdg-open index.html
 ```
 
-They'll see your beautiful vintage wedding invitation! 💍
+Или используйте Live Server в VS Code для авто-обновления.
 
 ---
 
-## Next Steps: Replace Artwork
+## 2. GitHub Pages (бесплатный хостинг)
 
-When you get your custom wedding illustrations:
+### Вариант A: Через веб-интерфейс (1 минута)
 
-1. **Prepare files**: Get your artist's illustrations as SVG or PNG files
-2. **Upload to GitHub**:
-   - Go to: https://github.com/kortul/invitation/tree/main/assets
-   - Click **Add file** → **Upload files**
-   - Select files from `/assets/` folder you want to replace
-   - Drag and drop your new artwork
-   - Scroll down, click **Commit changes**
-3. **Done!** Your site updates with the new artwork
+1. Откройте https://github.com/kortul/invitation
+2. **Settings** → **Pages** (в левом меню)
+3. **Source**: выберите `main` → папка `/ (root)`
+4. Нажмите **Save**
+5. Подождите 1-2 минуты
+6. Сайт доступен по: `https://kortul.github.io/invitation/`
 
-See **README.md** for detailed replacement instructions.
+### Вариант B: Автоматически (если уже настроено)
+
+Просто запушьте изменения:
+```bash
+git add .
+git commit -m "Обновление сайта"
+git push
+```
+
+GitHub Pages обновится автоматически.
 
 ---
 
-## Common Edits
+## 3. Замена иллюстраций
 
-### Update Wedding Details
+### Что нужно сделать:
 
-Edit `index.html` and find:
+1. Подготовьте SVG или PNG файлы:
+   - `mansion.svg` — замок/особняк (главный элемент)
+   - `bride-groom.svg` — жених и невеста
+   - `botanical-top.svg`, `botanical-bottom.svg` — рамки сверху/снизу
+   - `flower-corner.svg` — угловые цветы (4 шт.)
+   - `garden-scene.svg` — сад для раздела "История"
+   - `ceremony-icon.svg`, `cocktail-icon.svg`, `dinner-icon.svg`, `dancing-icon.svg` — иконки таймлайна
+   - `gallery-placeholder-*.svg` — 6 фото для галереи
+   - `closing-decoration.svg` — финальный декор
+   - `footer-ornament.svg` — орнамент в подвал
 
+2. Сохраните в папку `assets/` (перезаписав старые файлы)
+
+3. Закоммитьте:
+```bash
+git add assets/
+git commit -m "Новые иллюстрации"
+git push
+```
+
+### Если имена файлов другие:
+
+Откройте `index.html` и найдите строки:
 ```html
-<span class="name-line">Eleanor & James</span>          <!-- Line 32 -->
-<span class="date-line">June 15th, 2024</span>           <!-- Line 35 -->
-<p class="location-line">Paris, France</p>              <!-- Line 37 -->
+<img src="assets/mansion.svg" alt="Старинный замок" class="mansion-illustration" id="mansion">
 ```
 
-### Update Story Text
+Замените `assets/mansion.svg` на ваш путь, например `assets/my-castle.png`.
 
-Find this section (around line 59):
+---
 
+## 4. Редактирование текста
+
+Откройте `index.html` и найдите:
+
+### Имена и дата:
 ```html
-<p>
-    In the gardens of a moonlit summer evening...
-    <!-- Replace this entire paragraph -->
+<h1 class="couple-names">
+    <span class="name name-1">Александр</span>
+    <span class="ampersand">&</span>
+    <span class="name name-2">Екатерина</span>
+</h1>
+<p class="wedding-date">25 августа 2027</p>
+```
+
+### Раздел "История":
+```html
+<p class="story-text">
+    Всё началось с одной случайной встречи...
 </p>
 ```
 
-### Update Venue & Details
-
-Find the Details section (around line 146):
-
+### Место проведения:
 ```html
-<div class="detail-card">
-    <h3>Venue</h3>
-    <p>Château de Versailles Gardens</p>  <!-- Edit these -->
-    <p class="detail-subtext">Versailles, France</p>
-</div>
+<strong>Замок "Ле Гранд"</strong><br>
+ул. Садовая, 15<br>
+г. Киров, Кировская область
+```
+
+### Контакты:
+```html
+<strong>Александр:</strong> +7 (XXX) XXX-XX-XX<br>
+<strong>Екатерина:</strong> +7 (XXX) XXX-XX-XX
 ```
 
 ---
 
-## Troubleshooting
+## 5. Изменение цветов (опционально)
 
-### Site not showing up?
-- Wait 2-3 minutes after enabling Pages
-- Hard refresh: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
-- Check that Pages is enabled in Settings
+Откройте `styles.css` и найдите `:root`:
 
-### Changes not appearing?
-- Hard refresh your browser (Ctrl+Shift+R)
-- Wait 1-2 minutes for deployment
-- Check that you clicked "Commit changes"
+```css
+:root {
+    --color-paper: #FDF8F3;      /* Фон (античная бумага) */
+    --color-olive: #6B7B5F;       /* Оливковый акцент */
+    --color-sage: #9CAF88;        /* Шалфей */
+    --color-dusty-rose: #C9A9A6;  /* Пыльная роза */
+    --color-ink: #2C2C2C;         /* Текст */
+    --color-gold: #B8A98B;        /* Золотистый декор */
+}
+```
 
-### Images not loading?
-- Make sure files are in `/assets/` folder
-- Check file names match exactly (case-sensitive)
-- Look at browser console (F12) for error messages
-
----
-
-## Want to Do More?
-
-See **README.md** for:
-- Detailed customization guide
-- How to update all colors and fonts
-- How to use JavaScript functions for dynamic updates
-- Mobile optimization tips
-- Print-friendly setup
-- Accessibility features
+Меняйте hex-коды на свои цвета.
 
 ---
 
-## You're All Set! 🎉
+## 6. Проверка на мобильном
 
-Your vintage wedding invitation is live and ready to impress your guests!
+### Chrome DevTools:
 
-**Questions?** Read the full README.md in your repo.
+1. Откройте `index.html` в Chrome
+2. Нажмите `F12` (DevTools)
+3. Нажмите `Ctrl+Shift+M` (Device Toolbar)
+4. Выберите устройство (iPhone 12, Pixel 5 и т.д.)
+5. Проверьте все секции
 
-Happy wedding! 💕
+### Реальное устройство:
+
+Загрузите на GitHub Pages и откройте ссылку на телефоне.
+
+---
+
+## 7. Финальные шаги
+
+1. ✅ Проверили локально
+2. ✅ Заменили иллюстрации
+3. ✅ Отредактировали текст
+4. ✅ Проверили на мобильном
+5. ✅ Запушили на GitHub
+
+**Готово!** 🎉
+
+---
+
+## 📞 Если что-то пошло не так
+
+### Сайт не отображается на GitHub Pages:
+
+- Подождите 2-3 минуты после пуша
+- Проверьте: Settings → Pages → нет ли ошибок
+- Убедитесь, что `index.html` в корне репозитория
+
+### Анимации не работают:
+
+- Проверьте консоль браузера (`F12` → Console)
+- Убедитесь, что `script.js` подключён в `index.html`
+- Отключите расширения браузера (иногда блокируют скрипты)
+
+### Картинки не загружаются:
+
+- Проверьте пути в `index.html`
+- Убедитесь, что файлы в папке `assets/`
+- Проверьте регистр имён (Linux чувствителен к `Mansion.svg` vs `mansion.svg`)
+
+---
+
+**Удачи в подготовке к свадьбе! 💕**
