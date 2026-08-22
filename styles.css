@@ -1,24 +1,24 @@
 /* ============================================
-   VINTAGE WEDDING INVITATION - MODERN LAYOUT
+   VINTAGE WEDDING INVITATION - ETSY STYLE
    ============================================ */
 
-/* CSS Variables */
 :root {
     /* Colors */
-    --color-paper: #FDF8F3;
-    --color-paper-dark: #F5EFE6;
-    --color-ink: #2C2C2C;
-    --color-ink-light: #4A4A4A;
-    --color-olive: #6B7B5F;
-    --color-olive-light: #8A9B7C;
-    --color-sage: #9CAF88;
-    --color-dusty-rose: #C9A9A6;
-    --color-cream: #F5F0EB;
-    --color-gold: #B8A98B;
+    --color-paper: #FDFBF7;
+    --color-paper-dark: #F7F3EC;
+    --color-ink: #2B2B2B;
+    --color-ink-light: #5A5A5A;
+    --color-olive: #7A8B6E;
+    --color-sage: #A3B593;
+    --color-dusty-rose: #D4B5B0;
+    --color-cream: #F9F5F0;
+    --color-gold: #C9B896;
+    --color-burgundy: #8B5A5A;
     
     /* Typography */
     --font-serif: 'Cormorant Garamond', Georgia, serif;
-    --font-script: 'Great Vibes', cursive;
+    --font-script: 'Pinyon Script', cursive;
+    --font-script-alt: 'Great Vibes', cursive;
     
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -26,15 +26,10 @@
     --spacing-md: 2rem;
     --spacing-lg: 3rem;
     --spacing-xl: 4rem;
-    --spacing-xxl: 6rem;
-    
-    /* Transitions */
-    --transition-fast: 0.3s ease;
-    --transition-medium: 0.5s ease;
-    --transition-slow: 0.8s ease;
+    --spacing-xxl: 8rem;
 }
 
-/* Reset & Base */
+/* Reset */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -48,27 +43,25 @@ html {
 body {
     font-family: var(--font-serif);
     font-size: 18px;
-    line-height: 1.7;
+    line-height: 1.6;
     color: var(--color-ink);
     background-color: var(--color-paper);
-    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    background-image: 
+        url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
     overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Respect reduced motion */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
     }
 }
 
 /* ============================================
-   HERO SECTION - CLEAN LAYOUT
+   HERO SECTION
    ============================================ */
 
 .hero {
@@ -80,30 +73,29 @@ body {
     justify-content: center;
     padding: var(--spacing-xl);
     background: linear-gradient(180deg, var(--color-paper) 0%, var(--color-paper-dark) 100%);
-    overflow: hidden;
 }
 
+/* Background Mansion */
 .hero-background {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    max-width: 700px;
+    height: auto;
     z-index: 1;
     pointer-events: none;
 }
 
 .hero-mansion {
-    width: 60%;
-    max-width: 500px;
+    width: 100%;
     height: auto;
     object-fit: contain;
     opacity: 0;
-    transform: scale(0.95) translateY(20px);
-    transition: opacity var(--transition-slow), transform var(--transition-slow);
+    transform: scale(0.92) translateY(30px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+    filter: sepia(20%) contrast(95%);
 }
 
 .hero-mansion.revealed {
@@ -111,63 +103,57 @@ body {
     transform: scale(1) translateY(0);
 }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 800px;
-    width: 100%;
-}
-
-.hero-decorations {
+/* Frame */
+.hero-frame {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
-}
-
-.decor-top {
-    position: absolute;
-    top: 2%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70%;
-    height: auto;
-    opacity: 0;
-    transition: opacity var(--transition-slow);
-}
-
-.decor-bottom {
-    position: absolute;
-    bottom: 2%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70%;
-    height: auto;
-    opacity: 0;
-    transition: opacity var(--transition-slow);
-}
-
-.hero-main {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: var(--spacing-lg) 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.frame-decoration {
+    width: 90%;
+    max-width: 900px;
+    height: auto;
+    opacity: 0;
+    transition: opacity 1s ease 0.5s;
+}
+
+.hero-loaded .frame-decoration {
+    opacity: 0.8;
+}
+
+/* Content */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 800px;
+}
+
+.hero-couple-wrapper {
+    margin-bottom: var(--spacing-lg);
 }
 
 .hero-couple {
-    width: 35%;
-    max-width: 280px;
+    width: 280px;
+    max-width: 320px;
     height: auto;
     object-fit: contain;
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity var(--transition-slow), transform var(--transition-slow);
+    transform: translateY(40px);
+    transition: opacity 1s ease 0.8s, transform 1s ease 0.8s;
+    filter: sepia(15%);
 }
 
 .hero-couple.revealed {
@@ -175,11 +161,11 @@ body {
     transform: translateY(0);
 }
 
+/* Text */
 .hero-text {
-    text-align: center;
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity var(--transition-slow), transform var(--transition-slow);
+    transform: translateY(30px);
+    transition: opacity 1s ease 1.2s, transform 1s ease 1.2s;
 }
 
 .hero-text.revealed {
@@ -187,35 +173,52 @@ body {
     transform: translateY(0);
 }
 
-.pre-title {
-    font-size: 1.1rem;
-    letter-spacing: 0.15em;
+.invitation-line {
+    font-size: 0.95rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--color-olive);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
     font-weight: 400;
 }
 
 .couple-names {
     font-family: var(--font-script);
-    font-size: 4.5rem;
-    line-height: 1.2;
+    font-size: 5.5rem;
+    line-height: 1.1;
     color: var(--color-ink);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    font-weight: 400;
 }
 
 .couple-names .ampersand {
     display: block;
-    font-size: 3rem;
-    color: var(--color-dusty-rose);
+    font-size: 4rem;
+    color: var(--color-burgundy);
     margin: var(--spacing-xs) 0;
+    opacity: 0.8;
+}
+
+.date-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.date-line {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-olive), transparent);
 }
 
 .wedding-date {
-    font-size: 1.3rem;
-    letter-spacing: 0.1em;
+    font-size: 1.2rem;
+    letter-spacing: 0.15em;
     color: var(--color-ink-light);
-    font-weight: 600;
+    font-weight: 400;
+    text-transform: uppercase;
 }
 
 /* Scroll Indicator */
@@ -224,29 +227,28 @@ body {
     bottom: var(--spacing-lg);
     left: 50%;
     transform: translateX(-50%);
-    text-align: center;
+    z-index: 4;
     opacity: 0;
-    animation: fadeInUp 1s ease 2s forwards;
-    z-index: 3;
-}
-
-.scroll-indicator span {
-    display: block;
-    font-size: 0.9rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--color-olive);
-    margin-bottom: var(--spacing-xs);
+    animation: fadeInUp 1s ease 2.5s forwards;
 }
 
 .scroll-arrow {
-    width: 20px;
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(180deg, var(--color-olive) 0%, transparent 100%);
+    position: relative;
+}
+
+.scroll-arrow::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
     height: 20px;
-    margin: 0 auto;
-    border-right: 2px solid var(--color-olive);
-    border-bottom: 2px solid var(--color-olive);
-    transform: rotate(45deg);
-    animation: bounce 2s infinite;
+    background: var(--color-olive);
+    animation: scrollDown 2s infinite;
 }
 
 @keyframes fadeInUp {
@@ -255,232 +257,54 @@ body {
     }
 }
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: rotate(45deg) translateY(0);
+@keyframes scrollDown {
+    0%, 100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(0);
     }
-    40% {
-        transform: rotate(45deg) translateY(10px);
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(10px);
     }
-    60% {
-        transform: rotate(45deg) translateY(5px);
-    }
-}
-
-/* ============================================
-   SECTIONS BASE
-   ============================================ */
-
-.section {
-    padding: var(--spacing-xxl) var(--spacing-md);
-    position: relative;
-}
-
-.section-container {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: var(--spacing-xl);
-}
-
-.section-header h2 {
-    font-family: var(--font-serif);
-    font-size: 2.8rem;
-    font-weight: 400;
-    color: var(--color-ink);
-    margin-bottom: var(--spacing-sm);
-    letter-spacing: 0.05em;
-}
-
-.decorative-divider {
-    width: 100px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--color-olive), transparent);
-    margin: 0 auto;
-}
-
-.section-illustration {
-    width: 200px;
-    height: auto;
-    object-fit: contain;
-    margin-bottom: var(--spacing-md);
-    opacity: 0.9;
-}
-
-/* Section reveal animation */
-.section {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity var(--transition-medium), transform var(--transition-medium);
-}
-
-.section.revealed {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ============================================
-   OUR STORY SECTION
-   ============================================ */
-
-.our-story {
-    background-color: var(--color-cream);
-}
-
-.story-content {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.story-text {
-    font-size: 1.15rem;
-    line-height: 1.9;
-    color: var(--color-ink-light);
-    margin-bottom: var(--spacing-md);
-}
-
-.story-text:last-child {
-    margin-bottom: 0;
-}
-
-/* ============================================
-   THE DAY SECTION
-   ============================================ */
-
-.the-day {
-    background-color: var(--color-paper);
-}
-
-.timeline {
-    position: relative;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, var(--color-olive) 0%, var(--color-sage) 100%);
-}
-
-.timeline-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: var(--spacing-lg);
-    position: relative;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity var(--transition-medium), transform var(--transition-medium);
-}
-
-.timeline-item.revealed {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.timeline-item:last-child {
-    margin-bottom: 0;
-}
-
-.timeline-icon {
-    width: 90px;
-    height: 90px;
-    background: var(--color-paper);
-    border: 2px solid var(--color-olive);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-    overflow: hidden;
-    padding: var(--spacing-xs);
-}
-
-.timeline-illustration {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.timeline-content {
-    width: 45%;
-    padding: var(--spacing-md);
-    text-align: center;
-}
-
-.timeline-item:nth-child(odd) .timeline-content {
-    margin-right: auto;
-}
-
-.timeline-item:nth-child(even) .timeline-content {
-    margin-left: auto;
-}
-
-.timeline-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--color-ink);
-    margin-bottom: var(--spacing-xs);
-}
-
-.timeline-time {
-    font-size: 1.2rem;
-    color: var(--color-olive);
-    font-weight: 600;
-    margin-bottom: var(--spacing-xs);
-}
-
-.timeline-description {
-    font-size: 1rem;
-    color: var(--color-ink-light);
-    line-height: 1.6;
 }
 
 /* ============================================
    DETAILS SECTION
    ============================================ */
 
+.section {
+    padding: var(--spacing-xxl) var(--spacing-md);
+}
+
+.section-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .details {
     background-color: var(--color-cream);
 }
 
-.details-grid {
+.details-content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
+    text-align: center;
 }
 
-.detail-card {
+.detail-block {
     padding: var(--spacing-lg);
     background: var(--color-paper);
-    border: 1px solid var(--color-olive-light);
-    text-align: center;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.detail-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(107, 123, 95, 0.15);
+    border: 1px solid var(--color-sage);
 }
 
 .detail-title {
-    font-size: 1.4rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
     color: var(--color-olive);
     margin-bottom: var(--spacing-sm);
-    letter-spacing: 0.05em;
+    font-weight: 400;
 }
 
 .detail-text {
@@ -500,120 +324,31 @@ body {
 }
 
 /* ============================================
-   GALLERY SECTION
-   ============================================ */
-
-.gallery {
-    background-color: var(--color-paper);
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-md);
-}
-
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border: 3px solid var(--color-cream);
-    transition: transform var(--transition-fast);
-}
-
-.gallery-item:hover {
-    transform: scale(1.03);
-}
-
-.gallery-image {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-    transition: transform var(--transition-slow);
-}
-
-.gallery-item:hover .gallery-image {
-    transform: scale(1.05);
-}
-
-/* ============================================
    CLOSING SECTION
    ============================================ */
 
 .closing {
-    background-color: var(--color-cream);
+    background-color: var(--color-paper);
     text-align: center;
-}
-
-.closing-content {
-    max-width: 600px;
-    margin: 0 auto;
 }
 
 .closing-illustration {
-    width: 150px;
+    width: 180px;
     height: auto;
-    object-fit: contain;
     margin-bottom: var(--spacing-lg);
-    opacity: 0.9;
-}
-
-.closing-title {
-    font-family: var(--font-serif);
-    font-size: 2.5rem;
-    font-weight: 400;
-    color: var(--color-ink);
-    margin-bottom: var(--spacing-md);
+    opacity: 0.8;
 }
 
 .closing-text {
-    font-size: 1.15rem;
-    line-height: 1.9;
-    color: var(--color-ink-light);
-    margin-bottom: var(--spacing-lg);
-}
-
-.closing-signature {
     font-size: 1.2rem;
-    color: var(--color-ink);
     line-height: 2;
-}
-
-.closing-signature strong {
-    font-family: var(--font-script);
-    font-size: 2rem;
-    color: var(--color-olive);
-}
-
-/* ============================================
-   FOOTER
-   ============================================ */
-
-.footer {
-    background-color: var(--color-paper-dark);
-    padding: var(--spacing-xl) var(--spacing-md);
-    text-align: center;
-}
-
-.footer-content {
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.footer-decoration {
-    margin-bottom: var(--spacing-md);
-}
-
-.footer-ornament {
-    width: 100px;
-    height: auto;
-    opacity: 0.7;
-}
-
-.footer-text {
-    font-size: 1rem;
-    letter-spacing: 0.1em;
     color: var(--color-ink-light);
+}
+
+.closing-text strong {
+    font-family: var(--font-script);
+    font-size: 2.2rem;
+    color: var(--color-olive);
 }
 
 /* ============================================
@@ -622,145 +357,88 @@ body {
 
 @media (max-width: 768px) {
     :root {
-        --spacing-xxl: 4rem;
-        --spacing-xl: 3rem;
+        --spacing-xxl: 5rem;
     }
     
     body {
         font-size: 16px;
     }
     
-    /* Hero Mobile */
-    .hero-mansion {
-        width: 80%;
-        max-width: none;
+    .hero {
+        padding: var(--spacing-lg);
     }
     
-    .decor-top,
-    .decor-bottom {
-        width: 85%;
+    .hero-mansion {
+        max-width: 500px;
+    }
+    
+    .frame-decoration {
+        width: 95%;
     }
     
     .hero-couple {
-        width: 50%;
+        width: 220px;
         max-width: none;
     }
     
     .couple-names {
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
     
     .couple-names .ampersand {
-        font-size: 2rem;
-    }
-    
-    .wedding-date {
-        font-size: 1.1rem;
-    }
-    
-    /* Sections Mobile */
-    .section-header h2 {
-        font-size: 2.2rem;
-    }
-    
-    .section-illustration {
-        width: 150px;
-    }
-    
-    /* Timeline Mobile */
-    .timeline::before {
-        left: 35px;
-    }
-    
-    .timeline-item {
-        flex-direction: column;
-        align-items: flex-start;
-        margin-left: 70px;
-    }
-    
-    .timeline-icon {
-        left: 35px;
-        width: 70px;
-        height: 70px;
-    }
-    
-    .timeline-content {
-        width: 100%;
-        text-align: left;
-        padding-left: var(--spacing-lg);
-    }
-    
-    .timeline-item:nth-child(odd) .timeline-content,
-    .timeline-item:nth-child(even) .timeline-content {
-        margin: 0;
-    }
-    
-    .timeline-title {
-        font-size: 1.3rem;
-    }
-    
-    /* Details Mobile */
-    .details-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-md);
-    }
-    
-    /* Gallery Mobile */
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-sm);
-    }
-    
-    .gallery-image {
-        height: 180px;
-    }
-    
-    /* Closing Mobile */
-    .closing-title {
-        font-size: 2rem;
-    }
-    
-    .closing-signature strong {
-        font-size: 1.6rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .couple-names {
         font-size: 2.5rem;
-    }
-    
-    .pre-title {
-        font-size: 0.95rem;
     }
     
     .wedding-date {
         font-size: 1rem;
     }
     
-    .section-header h2 {
-        font-size: 1.9rem;
-    }
-    
-    .story-text {
-        font-size: 1.05rem;
-    }
-    
-    .gallery-grid {
+    .details-content {
         grid-template-columns: 1fr;
+        gap: var(--spacing-md);
     }
     
-    .gallery-image {
-        height: 220px;
+    .detail-block {
+        padding: var(--spacing-md);
+    }
+    
+    .closing-illustration {
+        width: 140px;
+    }
+    
+    .closing-text {
+        font-size: 1.1rem;
+    }
+    
+    .closing-text strong {
+        font-size: 1.8rem;
     }
 }
 
-/* Print styles */
-@media print {
-    .hero {
-        min-height: 100vh;
+@media (max-width: 480px) {
+    .couple-names {
+        font-size: 2.8rem;
     }
     
+    .couple-names .ampersand {
+        font-size: 2rem;
+    }
+    
+    .invitation-line {
+        font-size: 0.85rem;
+    }
+    
+    .wedding-date {
+        font-size: 0.95rem;
+    }
+    
+    .date-line {
+        width: 40px;
+    }
+}
+
+/* Print */
+@media print {
     .scroll-indicator {
         display: none;
     }
