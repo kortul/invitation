@@ -1,9 +1,14 @@
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <defs><style>.icon-line { stroke: #9d9c7f; fill: none; stroke-width: 2; } .icon-fill { fill: #9d9c7f; }</style></defs>
-  <circle cx="50" cy="30" r="8" class="icon-fill" />
-  <path class="icon-line" d="M 50 38 L 50 55" />
-  <path class="icon-line" d="M 38 48 L 62 48" />
-  <path class="icon-line" d="M 42 55 L 50 70" />
-  <path class="icon-line" d="M 58 55 L 50 70" />
-  <path d="M 30 75 Q 50 85 70 75" class="icon-line" stroke-width="1.5" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <circle cx="40" cy="40" r="35" fill="none" stroke="#6B7B5F" stroke-width="2"/>
+  
+  <!-- Arch -->
+  <path d="M 25 60 L 25 35 Q 25 20, 40 20 Q 55 20, 55 35 L 55 60" stroke="#6B7B5F" stroke-width="3" fill="none"/>
+  
+  <!-- Flowers on arch -->
+  <circle cx="30" cy="28" r="4" fill="#C9A9A6" opacity="0.7"/>
+  <circle cx="40" cy="24" r="4" fill="#C9A9A6" opacity="0.7"/>
+  <circle cx="50" cy="28" r="4" fill="#C9A9A6" opacity="0.7"/>
+  
+  <!-- Aisle -->
+  <line x1="40" y1="60" x2="40" y2="75" stroke="#8A9B7C" stroke-width="2" stroke-dasharray="3,3"/>
 </svg>

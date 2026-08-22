@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 100">
+  <defs>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6B7B5F"/>
+      <stop offset="50%" style="stop-color:#8A9B7C"/>
+      <stop offset="100%" style="stop-color:#6B7B5F"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Left vine -->
+  <path d="M 50 80 Q 100 60, 150 70 Q 200 80, 250 60" stroke="url(#leafGrad)" stroke-width="3" fill="none"/>
+  <path d="M 100 70 Q 110 50, 130 55" stroke="url(#leafGrad)" stroke-width="2" fill="none"/>
+  <path d="M 180 65 Q 190 45, 210 50" stroke="url(#leafGrad)" stroke-width="2" fill="none"/>
+  
+  <!-- Leaves left -->
+  <ellipse cx="100" cy="70" rx="15" ry="8" fill="#8A9B7C" opacity="0.8" transform="rotate(-30 100 70)"/>
+  <ellipse cx="130" cy="55" rx="12" ry="6" fill="#9CAF88" opacity="0.7" transform="rotate(20 130 55)"/>
+  <ellipse cx="180" cy="65" rx="14" ry="7" fill="#8A9B7C" opacity="0.8" transform="rotate(-25 180 65)"/>
+  <ellipse cx="210" cy="50" rx="11" ry="5" fill="#9CAF88" opacity="0.7" transform="rotate(15 210 50)"/>
+  
+  <!-- Center ornament -->
+  <circle cx="300" cy="50" r="25" fill="none" stroke="#B8A98B" stroke-width="2"/>
+  <circle cx="300" cy="50" r="15" fill="none" stroke="#C9A9A6" stroke-width="1.5"/>
+  <circle cx="300" cy="50" r="5" fill="#C9A9A6" opacity="0.6"/>
+  
+  <!-- Right vine (mirror) -->
+  <path d="M 350 60 Q 400 80, 450 70 Q 500 60, 550 80" stroke="url(#leafGrad)" stroke-width="3" fill="none"/>
+  <path d="M 390 65 Q 400 45, 420 50" stroke="url(#leafGrad)" stroke-width="2" fill="none"/>
+  <path d="M 470 70 Q 480 50, 500 55" stroke="url(#leafGrad)" stroke-width="2" fill="none"/>
+  
+  <!-- Leaves right -->
+  <ellipse cx="390" cy="65" rx="14" ry="7" fill="#8A9B7C" opacity="0.8" transform="rotate(25 390 65)"/>
+  <ellipse cx="420" cy="50" rx="11" ry="5" fill="#9CAF88" opacity="0.7" transform="rotate(-15 420 50)"/>
+  <ellipse cx="470" cy="70" rx="15" ry="8" fill="#8A9B7C" opacity="0.8" transform="rotate(30 470 70)"/>
+  <ellipse cx="500" cy="55" rx="12" ry="6" fill="#9CAF88" opacity="0.7" transform="rotate(-20 500 55)"/>
+  
+  <!-- Small flowers -->
+  <circle cx="120" cy="65" r="4" fill="#C9A9A6" opacity="0.7"/>
+  <circle cx="200" cy="58" r="3" fill="#C9A9A6" opacity="0.6"/>
+  <circle cx="400" cy="58" r="3" fill="#C9A9A6" opacity="0.6"/>
+  <circle cx="480" cy="65" r="4" fill="#C9A9A6" opacity="0.7"/>
+</svg>

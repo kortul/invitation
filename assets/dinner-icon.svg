@@ -1,8 +1,19 @@
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <defs><style>.icon-line { stroke: #9d9c7f; fill: none; stroke-width: 2; } .icon-fill { fill: #9d9c7f; }</style></defs>
-  <circle cx="35" cy="45" r="15" class="icon-line" />
-  <circle cx="65" cy="45" r="15" class="icon-line" />
-  <path d="M 25 70 L 25 80 L 30 80" class="icon-line" />
-  <path d="M 75 70 L 75 80 L 70 80" class="icon-line" />
-  <line x1="40" y1="75" x2="60" y2="75" class="icon-line" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <circle cx="40" cy="40" r="35" fill="none" stroke="#6B7B5F" stroke-width="2"/>
+  
+  <!-- Plate -->
+  <ellipse cx="40" cy="45" rx="20" ry="8" fill="none" stroke="#6B7B5F" stroke-width="2"/>
+  <ellipse cx="40" cy="45" rx="15" ry="6" fill="#F5EFE6" opacity="0.5"/>
+  
+  <!-- Fork -->
+  <line x1="25" y1="35" x2="25" y2="55" stroke="#8A9B7C" stroke-width="2"/>
+  <line x1="23" y1="35" x2="23" y2="40" stroke="#8A9B7C" stroke-width="2"/>
+  <line x1="25" y1="35" x2="25" y2="40" stroke="#8A9B7C" stroke-width="2"/>
+  <line x1="27" y1="35" x2="27" y2="40" stroke="#8A9B7C" stroke-width="2"/>
+  
+  <!-- Knife -->
+  <line x1="55" y1="35" x2="55" y2="55" stroke="#8A9B7C" stroke-width="2"/>
+  
+  <!-- Napkin -->
+  <rect x="35" y="30" width="10" height="8" fill="#C9A9A6" opacity="0.4"/>
 </svg>

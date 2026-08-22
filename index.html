@@ -3,559 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Приглашение на свадьбу Павла и Александры</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', 'Garamond', serif;
-            background: linear-gradient(135deg, #f5e6d3 0%, #e8d5c4 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* ГЛАВНОЕ ПРИГЛАШЕНИЕ */
-        .invitation-card {
-            background: white;
-            display: grid;
-            grid-template-columns: 1fr 1.5fr 1fr;
-            gap: 40px;
-            padding: 60px;
-            border-radius: 8px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-            margin-bottom: 60px;
-        }
-
-        /* === ЛЕВАЯ КОЛОННА - РАСПИСАНИЕ === */
-        .left-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .section-title {
-            font-size: 20px;
-            font-style: italic;
-            color: #8b7355;
-            text-align: center;
-            line-height: 1.2;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
-        }
-
-        .timeline {
-            width: 100%;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .timeline-item {
-            position: relative;
-            width: 140px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .timeline-image {
-            width: 120px;
-            height: 120px;
-            background: #f8f8f8;
-            border: 2px dashed #d4a574;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-            font-size: 12px;
-            color: #999;
-            font-family: Arial, sans-serif;
-            flex-shrink: 0;
-        }
-
-        .timeline-time {
-            font-size: 16px;
-            font-weight: bold;
-            color: #8b7355;
-            margin-bottom: 4px;
-        }
-
-        .timeline-label {
-            font-size: 13px;
-            color: #666;
-            font-style: italic;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, #d4a574 0%, #d4a574 80%, transparent 100%);
-            transform: translateX(-50%);
-            z-index: -1;
-        }
-
-        /* === ЦЕНТРАЛЬНАЯ КОЛОННА === */
-        .center-section {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            border-left: 1px solid #e0e0e0;
-            border-right: 1px solid #e0e0e0;
-            padding: 0 40px;
-        }
-
-        .decorative-dot {
-            width: 8px;
-            height: 8px;
-            background: #d4a574;
-            border-radius: 50%;
-            margin: 5px 0;
-        }
-
-        .couple-title {
-            font-size: 18px;
-            font-style: italic;
-            color: #8b7355;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        .couple-names {
-            text-align: center;
-            margin: 15px 0;
-        }
-
-        .couple-names .name {
-            display: block;
-            font-size: 42px;
-            font-style: italic;
-            color: #2c2c2c;
-            line-height: 1.1;
-            letter-spacing: 1px;
-        }
-
-        .couple-connector {
-            font-size: 28px;
-            color: #d4a574;
-            margin: 8px 0;
-            font-style: italic;
-        }
-
-        .invitation-text {
-            font-size: 18px;
-            color: #555;
-            text-align: center;
-            line-height: 1.8;
-            margin: 20px 0;
-        }
-
-        .wedding-date {
-            font-size: 36px;
-            color: #8b7355;
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin: 20px 0;
-            font-style: italic;
-        }
-
-        .center-image {
-            width: 100%;
-            max-width: 280px;
-            height: 200px;
-            background: #f8f8f8;
-            border: 2px dashed #d4a574;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 25px 0;
-            font-size: 13px;
-            color: #999;
-            font-family: Arial, sans-serif;
-        }
-
-        .wishes-text {
-            font-size: 16px;
-            color: #666;
-            font-style: italic;
-            margin-top: 20px;
-        }
-
-        /* === ПРАВАЯ КОЛОННА === */
-        .right-section {
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-        }
-
-        .right-title {
-            font-size: 18px;
-            font-style: italic;
-            color: #8b7355;
-            text-align: center;
-            letter-spacing: 2px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .right-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 1px;
-            background: #d4a574;
-        }
-
-        .dress-code-section {
-            text-align: center;
-        }
-
-        .dress-code-subtitle {
-            font-size: 12px;
-            color: #666;
-            margin: 12px 0 18px;
-            line-height: 1.5;
-        }
-
-        .color-palette {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin: 15px 0 20px;
-        }
-
-        .color-circle {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            border: 1px solid #ccc;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .color-1 { background: #8b9b7d; }
-        .color-2 { background: #6b8fa1; }
-        .color-3 { background: #c8977f; }
-        .color-4 { background: #d4b5a0; }
-
-        .accent-image {
-            width: 140px;
-            height: 90px;
-            background: #f8f8f8;
-            border: 2px dashed #d4a574;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 15px auto;
-            font-size: 12px;
-            color: #999;
-            font-family: Arial, sans-serif;
-        }
-
-        .details-section {
-            text-align: center;
-        }
-
-        .details-text {
-            font-size: 12px;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .qr-placeholder {
-            width: 100px;
-            height: 100px;
-            background: #f8f8f8;
-            border: 2px solid #d4a574;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            font-size: 11px;
-            color: #999;
-            font-family: Arial, sans-serif;
-        }
-
-        /* ДОПОЛНИТЕЛЬНЫЕ РАЗДЕЛЫ */
-        .additional-sections {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
-        }
-
-        .section-box {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .section-box h2 {
-            font-size: 20px;
-            color: #8b7355;
-            margin-bottom: 20px;
-            font-style: italic;
-            letter-spacing: 1px;
-        }
-
-        .section-box p {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .section-box strong {
-            color: #2c2c2c;
-        }
-
-        .image-placeholder-large {
-            width: 100%;
-            height: 200px;
-            background: #f8f8f8;
-            border: 2px dashed #d4a574;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 20px 0;
-            font-size: 12px;
-            color: #999;
-            font-family: Arial, sans-serif;
-        }
-
-        /* АДАПТИВНОСТЬ */
-        @media (max-width: 1200px) {
-            .invitation-card {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                padding: 40px;
-            }
-
-            .center-section {
-                border-left: none;
-                border-right: none;
-                border-top: 1px solid #e0e0e0;
-                border-bottom: 1px solid #e0e0e0;
-                padding: 30px 0;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .invitation-card {
-                padding: 25px;
-                gap: 20px;
-            }
-
-            .couple-names .name {
-                font-size: 32px;
-            }
-
-            .wedding-date {
-                font-size: 26px;
-            }
-
-            .timeline-image {
-                width: 100px;
-                height: 100px;
-            }
-
-            .left-section,
-            .right-section {
-                gap: 30px;
-            }
-        }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            color: #8b7355;
-            font-size: 13px;
-            margin-top: 60px;
-            padding: 30px;
-            font-style: italic;
-        }
-    </style>
+    <meta name="description" content="Приглашение на свадьбу">
+    <title>Приглашение на свадьбу</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <!-- ГЛАВНОЕ ПРИГЛАШЕНИЕ -->
-        <div class="invitation-card">
-            <!-- ЛЕВАЯ КОЛОННА -->
-            <div class="left-section">
-                <h3 class="section-title">
-                    РАСПИСАНИЕ<br>ДНЯ
-                </h3>
-
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-image">Изображение</div>
-                        <div class="timeline-time">16:30</div>
-                        <div class="timeline-label">Встреча</div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-image">Изображение</div>
-                        <div class="timeline-time">17:00</div>
-                        <div class="timeline-label">Церемония</div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-image">Изображение</div>
-                        <div class="timeline-time">18:00</div>
-                        <div class="timeline-label">Ужин</div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-image">Изображение</div>
-                        <div class="timeline-time">20:00</div>
-                        <div class="timeline-label">Торт</div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-image">Изображение</div>
-                        <div class="timeline-time">20:30</div>
-                        <div class="timeline-label">Музыка</div>
-                    </div>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <!-- Mansion Layer -->
+            <div class="hero-layer mansion-layer">
+                <img src="assets/mansion.svg" alt="Старинный замок" class="mansion-illustration" id="mansion">
+            </div>
+            
+            <!-- Decorations Layer -->
+            <div class="hero-layer decorations-layer">
+                <div class="botanical-border top-border">
+                    <img src="assets/botanical-top.svg" alt="" class="border-decoration">
+                </div>
+                <div class="botanical-border bottom-border">
+                    <img src="assets/botanical-bottom.svg" alt="" class="border-decoration">
+                </div>
+                <div class="botanical-border left-border">
+                    <img src="assets/botanical-left.svg" alt="" class="border-decoration">
+                </div>
+                <div class="botanical-border right-border">
+                    <img src="assets/botanical-right.svg" alt="" class="border-decoration">
+                </div>
+                <div class="corner-decoration top-left">
+                    <img src="assets/flower-corner.svg" alt="" class="corner-flower">
+                </div>
+                <div class="corner-decoration top-right">
+                    <img src="assets/flower-corner.svg" alt="" class="corner-flower">
+                </div>
+                <div class="corner-decoration bottom-left">
+                    <img src="assets/flower-corner.svg" alt="" class="corner-flower">
+                </div>
+                <div class="corner-decoration bottom-right">
+                    <img src="assets/flower-corner.svg" alt="" class="corner-flower">
                 </div>
             </div>
-
-            <!-- ЦЕНТРАЛЬНАЯ КОЛОННА -->
-            <div class="center-section">
-                <div class="decorative-dot"></div>
-                <p class="couple-title">Приглашают вас на</p>
-                <div class="decorative-dot"></div>
-
-                <div class="couple-names">
-                    <span class="name">ПАВЕЛ</span>
+            
+            <!-- Couple Layer -->
+            <div class="hero-layer couple-layer">
+                <div class="couple-container">
+                    <img src="assets/bride-groom.svg" alt="Жених и невеста" class="couple-illustration" id="couple">
                 </div>
-
-                <div class="couple-connector">и</div>
-
-                <div class="couple-names">
-                    <span class="name">АЛЕКСАНДРА</span>
-                </div>
-
-                <div class="decorative-dot"></div>
-
-                <p class="invitation-text">
-                    приглашают<br>
-                    вас на свою свадьбу
-                </p>
-
-                <div class="wedding-date">25.09.2026</div>
-
-                <div class="center-image">Главное фото</div>
-
-                <p class="wishes-text">
-                    С уважением и любовью
-                </p>
             </div>
-
-            <!-- ПРАВАЯ КОЛОННА -->
-            <div class="right-section">
-                <div class="dress-code-section">
-                    <h3 class="right-title">ДРЕСС-КОД</h3>
-                    <p class="dress-code-subtitle">
-                        Вечерняя одежда в<br>
-                        пастельных тонах:
-                    </p>
-                    <div class="color-palette">
-                        <div class="color-circle color-1"></div>
-                        <div class="color-circle color-2"></div>
-                        <div class="color-circle color-3"></div>
-                        <div class="color-circle color-4"></div>
-                    </div>
-                    <div class="accent-image">Фото аксессуаров</div>
-                </div>
-
-                <div class="details-section">
-                    <h3 class="right-title">ДЕТАЛИ</h3>
-                    <p class="details-text">
-                        Пожалуйста, подтвердите<br>
-                        присутствие до 23.08.2026
-                    </p>
-                    <div class="qr-placeholder">QR код</div>
+            
+            <!-- Text Layer -->
+            <div class="hero-layer text-layer">
+                <div class="invitation-text">
+                    <p class="pre-title">Приглашаем вас на свадьбу</p>
+                    <h1 class="couple-names">
+                        <span class="name name-1">Александр</span>
+                        <span class="ampersand">&</span>
+                        <span class="name name-2">Екатерина</span>
+                    </h1>
+                    <p class="wedding-date">25 августа 2027</p>
                 </div>
             </div>
         </div>
+        
+        <div class="scroll-indicator">
+            <span>Листайте вниз</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
 
-        <!-- ДОПОЛНИТЕЛЬНЫЕ РАЗДЕЛЫ -->
-        <div class="additional-sections">
-            <!-- МЕСТО ПРОВЕДЕНИЯ -->
-            <div class="section-box">
-                <h2>МЕСТО ПРОВЕДЕНИЯ</h2>
-                <div class="image-placeholder-large">Фото места</div>
-                <p>
-                    <strong>Усадьба Версаль</strong><br>
-                    Санкт-Петербург, Россия
-                </p>
-                <p style="font-size: 12px; color: #999;">
-                    Адрес будет отправлен приглашенным
-                </p>
+    <!-- Our Story Section -->
+    <section class="section our-story" id="story">
+        <div class="section-container">
+            <div class="section-header">
+                <img src="assets/garden-scene.svg" alt="Садовая композиция" class="section-illustration">
+                <h2>Наша история</h2>
+                <div class="decorative-divider"></div>
             </div>
-
-            <!-- ПРОЖИВАНИЕ -->
-            <div class="section-box">
-                <h2>ПРОЖИВАНИЕ</h2>
-                <div class="image-placeholder-large">Фото отеля</div>
-                <p>
-                    <strong>Отель Крильон</strong><br>
-                    Специальные тарифы для гостей
+            <div class="story-content">
+                <p class="story-text">
+                    Всё началось с одной случайной встречи, которая изменила нашу жизнь навсегда. 
+                    Мы даже не подозревали, что этот день станет началом нашего общего пути.
                 </p>
-                <p style="font-size: 12px; color: #999;">
-                    Детали будут отправлены по подтверждению
+                <p class="story-text">
+                    Вместе мы прошли через множество моментов — радостных и трогательных, 
+                    смешных и серьёзных. И в каждом из них мы находили друг в друге поддержку, 
+                    понимание и бесконечную нежность.
                 </p>
-            </div>
-
-            <!-- МЕНЮ И ПОЖЕЛАНИЯ -->
-            <div class="section-box">
-                <h2>МЕНЮ И ПОЖЕЛАНИЯ</h2>
-                <p>
-                    <strong>Кулинарные предпочтения:</strong><br>
-                    Пожалуйста, укажите при подтверждении
-                </p>
-                <p style="font-size: 12px; color: #999;">
-                    Диетические ограничения и аллергии приветствуются
-                </p>
-                <p style="margin-top: 15px;">
-                    <strong>Подарок:</strong><br>
-                    Ваше присутствие — наш лучший подарок!
+                <p class="story-text">
+                    Теперь мы хотим разделить с вами самый важный день в нашей жизни — 
+                    день, когда наши сердца объединятся навсегда.
                 </p>
             </div>
         </div>
+    </section>
 
-        <!-- FOOTER -->
-        <footer>
-            <p>© 2026 Павел и Александра. История любви, которая началась давно...</p>
-        </footer>
-    </div>
+    <!-- The Day Section -->
+    <section class="section the-day" id="day">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>День торжества</h2>
+                <div class="decorative-divider"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="assets/ceremony-icon.svg" alt="" class="timeline-illustration">
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Церемония</h3>
+                        <p class="timeline-time">15:00</p>
+                        <p class="timeline-description">Торжественная регистрация брака</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="assets/cocktail-icon.svg" alt="" class="timeline-illustration">
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Коктейль</h3>
+                        <p class="timeline-time">16:30</p>
+                        <p class="timeline-description">Приветственные напитки и фуршет</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="assets/dinner-icon.svg" alt="" class="timeline-illustration">
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Ужин</h3>
+                        <p class="timeline-time">18:00</p>
+                        <p class="timeline-description">Праздничный банкет</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="assets/dancing-icon.svg" alt="" class="timeline-illustration">
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Танцы</h3>
+                        <p class="timeline-time">20:00</p>
+                        <p class="timeline-description">Вечеринка до упаду</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="section details" id="details">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Детали</h2>
+                <div class="decorative-divider"></div>
+            </div>
+            <div class="details-grid">
+                <div class="detail-card">
+                    <h3 class="detail-title">Место проведения</h3>
+                    <p class="detail-text">
+                        <strong>Замок "Ле Гранд"</strong><br>
+                        ул. Садовая, 15<br>
+                        г. Киров, Кировская область
+                    </p>
+                </div>
+                <div class="detail-card">
+                    <h3 class="detail-title">Дресс-код</h3>
+                    <p class="detail-text">
+                        Будем благодарны, если вы поддержите цветовую гамму нашей свадьбы:<br>
+                        <em>приглушённые оттенки оливкового, пыльной розы и кремового</em>
+                    </p>
+                </div>
+                <div class="detail-card">
+                    <h3 class="detail-title">Транспорт</h3>
+                    <p class="detail-text">
+                        Для гостей будет организован трансфер от центра города. 
+                        Просим сообщить о необходимости заранее.
+                    </p>
+                </div>
+                <div class="detail-card">
+                    <h3 class="detail-title">Контакты</h3>
+                    <p class="detail-text">
+                        По всем вопросам обращайтесь:<br>
+                        <strong>Александр:</strong> +7 (XXX) XXX-XX-XX<br>
+                        <strong>Екатерина:</strong> +7 (XXX) XXX-XX-XX
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section gallery" id="gallery">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Галерея</h2>
+                <div class="decorative-divider"></div>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="assets/gallery-placeholder-1.svg" alt="Фото 1" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/gallery-placeholder-2.svg" alt="Фото 2" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/gallery-placeholder-3.svg" alt="Фото 3" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/gallery-placeholder-4.svg" alt="Фото 4" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/gallery-placeholder-5.svg" alt="Фото 5" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/gallery-placeholder-6.svg" alt="Фото 6" class="gallery-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing Section -->
+    <section class="section closing" id="closing">
+        <div class="section-container">
+            <div class="closing-content">
+                <img src="assets/closing-decoration.svg" alt="" class="closing-illustration">
+                <h2 class="closing-title">Ждём вас с нетерпением!</h2>
+                <p class="closing-text">
+                    Этот день станет особенным только с вами — нашими близкими и дорогими людьми.
+                    Разделите с нами радость начала нашей семейной жизни!
+                </p>
+                <p class="closing-signature">
+                    С любовью,<br>
+                    <strong>Александр и Екатерина</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-decoration">
+                <img src="assets/footer-ornament.svg" alt="" class="footer-ornament">
+            </div>
+            <p class="footer-text">25 августа 2027</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

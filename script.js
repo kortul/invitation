@@ -1,390 +1,200 @@
-/**
- * Vintage Wedding Invitation - Interactive Scripts
- * Handles scroll animations, parallax effects, and interaction patterns
- */
+/* ============================================
+   VINTAGE WEDDING INVITATION - SCRIPT
+   ============================================ */
 
-// ========================================
-// INITIALIZATION
-// ========================================
-
-document.addEventListener('DOMContentLoaded', () => {
-    initScrollAnimations();
-    initParallax();
-    initHoverEffects();
-    initHeroFadeOut();
-});
-
-// ========================================
-// HERO FADE OUT ON SCROLL
-// ========================================
-
-/**
- * Fades out the hero section as user scrolls down
- */
-function initHeroFadeOut() {
-    const hero = document.querySelector('.hero');
+document.addEventListener('DOMContentLoaded', function() {
     
-    if (!hero) return;
+    // ============================================
+    // HERO ANIMATION SEQUENCE
+    // ============================================
     
-    window.addEventListener('scroll', () => {
-        const scrollPercent = window.scrollY / hero.clientHeight;
-        
-        // Fade hero from 1 to 0.3 over the hero height
-        if (scrollPercent < 1) {
-            const opacity = 1 - (scrollPercent * 0.7); // Goes from 1 to 0.3
-            hero.style.opacity = opacity;
-            
-            // Add fade-out class for additional styling when fully faded
-            if (opacity < 0.5) {
-                hero.classList.add('fade-out');
+    const mansion = document.getElementById('mansion');
+    const couple = document.getElementById('couple');
+    const heroText = document.querySelector('.invitation-text');
+    const heroSection = document.querySelector('.hero');
+    
+    // Sequence: Mansion → Decorations → Couple → Text
+    function playHeroSequence() {
+        // Step 1: Reveal mansion (immediate)
+        setTimeout(() => {
+            if (mansion) {
+                mansion.classList.add('revealed');
             }
-        } else {
-            hero.classList.add('fade-out');
-        }
+        }, 300);
         
-        // Reset when scrolling back up
-        if (scrollPercent < 0.1) {
-            hero.classList.remove('fade-out');
-        }
-    });
-}
-
-// ========================================
-// SCROLL-TRIGGERED ANIMATIONS
-// ========================================
-
-/**
- * Observes elements and triggers animations when they enter viewport
- */
-function initScrollAnimations() {
-    // Check if IntersectionObserver is supported
-    if (!('IntersectionObserver' in window)) {
-        console.warn('IntersectionObserver not supported');
-        return;
+        // Step 2: Reveal decorations
+        setTimeout(() => {
+            heroSection.classList.add('decorations-revealed');
+        }, 1200);
+        
+        // Step 3: Reveal couple
+        setTimeout(() => {
+            if (couple) {
+                couple.classList.add('revealed');
+            }
+        }, 2000);
+        
+        // Step 4: Reveal text
+        setTimeout(() => {
+            if (heroText) {
+                heroText.classList.add('revealed');
+            }
+        }, 2800);
     }
-
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
+    
+    // Start hero sequence
+    playHeroSequence();
+    
+    // ============================================
+    // SCROLL-TRIGGERED SECTION REVEALS
+    // ============================================
+    
+    const sections = document.querySelectorAll('.section');
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    // Intersection Observer for sections
+    const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Add active class to trigger animations
-                entry.target.classList.add('active');
-                
-                // Optional: Stop observing after animation triggers
-                observer.unobserve(entry.target);
+                entry.target.classList.add('revealed');
             }
         });
-    }, observerOptions);
-
-    // Observe all scroll-reveal elements
-    const revealElements = document.querySelectorAll(
-        '.our-story .story-text p, ' +
-        '.our-story .story-illustration, ' +
-        '.the-day .timeline-item, ' +
-        '.details .detail-card, ' +
-        '.details .additional-info, ' +
-        '.gallery-item, ' +
-        '.closing-text, ' +
-        '.closing-illustration, ' +
-        '.section-header'
-    );
-
-    revealElements.forEach(element => {
-        observer.observe(element);
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px'
     });
-}
-
-// ========================================
-// PARALLAX EFFECTS
-// ========================================
-
-/**
- * Creates subtle parallax movement on scroll
- */
-function initParallax() {
-    // Check for reduced motion preference
-    if (prefersReducedMotion()) {
-        return;
-    }
-
-    const parallaxElements = {
-        mansion: document.querySelector('.mansion'),
-        decorations: document.querySelector('.decorations'),
-        couple: document.querySelector('.couple'),
-        garden: document.querySelector('.garden-img'),
-        closingImg: document.querySelector('.closing-img')
-    };
-
-    // Remove null values
-    Object.keys(parallaxElements).forEach(key => {
-        if (!parallaxElements[key]) delete parallaxElements[key];
+    
+    sections.forEach(section => {
+        sectionObserver.observe(section);
     });
-
-    if (Object.keys(parallaxElements).length === 0) return;
-
-    window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-
-        // Apply parallax only to elements in viewport
-        Object.values(parallaxElements).forEach(element => {
-            if (!isElementInViewport(element)) return;
-
-            const rect = element.getBoundingClientRect();
-            const scrollPercent = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+    
+    // Staggered reveal for timeline items
+    const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('revealed');
+                }, index * 150);
+            }
+        });
+    }, {
+        threshold: 0.3
+    });
+    
+    timelineItems.forEach(item => {
+        timelineObserver.observe(item);
+    });
+    
+    // ============================================
+    // SMOOTH SCROLL FOR ANCHOR LINKS
+    // ============================================
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
             
-            // Subtle parallax movement
-            const movement = (scrollPercent - 0.5) * 20;
-            element.style.transform = `translateY(${movement}px)`;
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         });
     });
-}
-
-// ========================================
-// HOVER EFFECTS
-// ========================================
-
-/**
- * Adds interactive hover effects to cards and images
- */
-function initHoverEffects() {
+    
+    // ============================================
+    // PARALLAX EFFECT FOR HERO
+    // ============================================
+    
+    const heroLayers = document.querySelectorAll('.hero-layer');
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const heroHeight = document.querySelector('.hero').offsetHeight;
+        
+        if (scrolled < heroHeight) {
+            heroLayers.forEach((layer, index) => {
+                const speed = 0.05 + (index * 0.02);
+                layer.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        }
+    });
+    
+    // ============================================
+    // IMAGE LAZY LOADING
+    // ============================================
+    
+    const images = document.querySelectorAll('img[data-src]');
+    
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    
+    images.forEach(img => {
+        imageObserver.observe(img);
+    });
+    
+    // ============================================
+    // ELEGANT HOVER EFFECTS
+    // ============================================
+    
     const detailCards = document.querySelectorAll('.detail-card');
     const galleryItems = document.querySelectorAll('.gallery-item');
-
-    // Detail cards - subtle lift effect
+    
     detailCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
-            if (!prefersReducedMotion()) {
-                this.style.transform = 'translateY(-5px)';
-            }
+            this.style.transform = 'translateY(-8px)';
         });
-
+        
         card.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0)';
         });
     });
-
-    // Gallery items - already handled via CSS, but add click handlers if needed
-    galleryItems.forEach((item, index) => {
-        item.setAttribute('data-gallery-index', index);
-        
-        item.addEventListener('click', function(e) {
-            // Placeholder for future lightbox/modal functionality
-            console.log('Gallery item clicked:', index);
-        });
-    });
-}
-
-// ========================================
-// UTILITY FUNCTIONS
-// ========================================
-
-/**
- * Check if element is visible in viewport
- */
-function isElementInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top < window.innerHeight &&
-        rect.bottom > 0 &&
-        rect.left < window.innerWidth &&
-        rect.right > 0
-    );
-}
-
-/**
- * Check user's motion preference
- */
-function prefersReducedMotion() {
-    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-}
-
-/**
- * Smooth scroll handler (browser might not support natively on older browsers)
- */
-function enableSmoothScroll() {
-    if (!('scrollBehavior' in document.documentElement.style)) {
-        console.log('Smooth scroll not natively supported');
-        // Fallback could be implemented here if needed
-    }
-}
-
-// ========================================
-// SCROLL INDICATOR INTERACTION
-// ========================================
-
-document.addEventListener('DOMContentLoaded', () => {
-    const scrollIndicator = document.querySelector('.scroll-indicator');
     
-    if (scrollIndicator) {
-        scrollIndicator.addEventListener('click', () => {
-            // Scroll to our-story section
-            const ourStory = document.querySelector('.our-story');
-            if (ourStory) {
-                ourStory.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    }
-
-    // Hide scroll indicator when user scrolls
-    let scrollIndicatorTimeout;
-    window.addEventListener('scroll', () => {
-        if (scrollIndicator) {
-            scrollIndicator.style.opacity = '0';
-            scrollIndicator.style.pointerEvents = 'none';
+    // ============================================
+    // PERFORMANCE: THROTTLE SCROLL EVENTS
+    // ============================================
+    
+    function throttle(func, delay) {
+        let timeoutId;
+        let lastExecTime = 0;
+        
+        return function(...args) {
+            const currentTime = Date.now();
             
-            clearTimeout(scrollIndicatorTimeout);
-            scrollIndicatorTimeout = setTimeout(() => {
-                if (window.scrollY < 100) {
-                    scrollIndicator.style.opacity = '0.6';
-                    scrollIndicator.style.pointerEvents = 'auto';
-                }
-            }, 500);
-        }
-    });
+            if (currentTime - lastExecTime < delay) {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => {
+                    lastExecTime = currentTime;
+                    func.apply(this, args);
+                }, delay);
+            } else {
+                lastExecTime = currentTime;
+                func.apply(this, args);
+            }
+        };
+    }
+    
+    const throttledScroll = throttle(() => {
+        // Any additional scroll-based logic here
+    }, 100);
+    
+    window.addEventListener('scroll', throttledScroll);
+    
+    // ============================================
+    // CONSOLE WELCOME
+    // ============================================
+    
+    console.log('🎉 Wedding Invitation Loaded Successfully!');
+    console.log('💕 Made with love for Alexander & Ekaterina');
+    
 });
-
-// ========================================
-// DYNAMIC CONTENT UPDATES
-// ========================================
-
-/**
- * Updates bride/groom names (call this with custom names)
- * Usage: updateCoupleNames('Your Name', 'Their Name')
- */
-function updateCoupleNames(brideName, groomName) {
-    const nameElement = document.querySelector('.name-line');
-    if (nameElement) {
-        nameElement.textContent = `${brideName} & ${groomName}`;
-    }
-}
-
-/**
- * Updates wedding date
- * Usage: updateWeddingDate('June 15th, 2024')
- */
-function updateWeddingDate(dateString) {
-    const dateElement = document.querySelector('.date-line');
-    if (dateElement) {
-        dateElement.textContent = dateString;
-    }
-}
-
-/**
- * Updates wedding location
- * Usage: updateLocation('Paris, France')
- */
-function updateLocation(location) {
-    const locationElement = document.querySelector('.location-line');
-    if (locationElement) {
-        locationElement.textContent = location;
-    }
-}
-
-/**
- * Updates timeline event (call with event index 0-3)
- * Usage: updateTimelineEvent(0, 'Ceremony', '2:00 PM', 'Garden')
- */
-function updateTimelineEvent(index, title, time, location) {
-    const items = document.querySelectorAll('.timeline-item');
-    if (items[index]) {
-        items[index].querySelector('h3').textContent = title;
-        items[index].querySelector('.time').textContent = time;
-        items[index].querySelector('.description').textContent = location;
-    }
-}
-
-/**
- * Updates gallery image (call with index 0-5)
- * Usage: updateGalleryImage(0, 'path/to/image.jpg', 'alt text')
- */
-function updateGalleryImage(index, imagePath, altText) {
-    const items = document.querySelectorAll('.gallery-item img');
-    if (items[index]) {
-        items[index].src = imagePath;
-        items[index].alt = altText;
-    }
-}
-
-/**
- * Updates story text
- * Usage: updateStoryText('Your custom story...')
- */
-function updateStoryText(text) {
-    const storyText = document.querySelector('.story-text p');
-    if (storyText) {
-        storyText.textContent = text;
-    }
-}
-
-// ========================================
-// IMAGE ASSET HELPERS
-// ========================================
-
-/**
- * Updates SVG assets (mansion, couple, decorations, etc.)
- * Usage: updateAsset('mansion', 'path/to/new-mansion.svg')
- */
-function updateAsset(assetName, newPath) {
-    const assetMap = {
-        'mansion': '.mansion',
-        'couple': '.couple',
-        'decorations': '.decorations',
-        'garden': '.garden-img',
-        'closing': '.closing-img'
-    };
-
-    const selector = assetMap[assetName];
-    if (selector) {
-        const element = document.querySelector(selector);
-        if (element) {
-            element.src = newPath;
-        }
-    }
-}
-
-/**
- * Update multiple assets at once
- * Usage: updateAssets({
- *   mansion: 'path/to/mansion.svg',
- *   couple: 'path/to/couple.svg'
- * })
- */
-function updateAssets(assetMap) {
-    Object.entries(assetMap).forEach(([name, path]) => {
-        updateAsset(name, path);
-    });
-}
-
-// ========================================
-// EXPORT FOR EXTERNAL USE
-// ========================================
-
-window.WeddingInvitation = {
-    updateCoupleNames,
-    updateWeddingDate,
-    updateLocation,
-    updateTimelineEvent,
-    updateGalleryImage,
-    updateStoryText,
-    updateAsset,
-    updateAssets
-};
-
-// ========================================
-// LOGGING
-// ========================================
-
-console.log('🎊 Wedding Invitation initialized');
-console.log('Available functions:');
-console.log('- WeddingInvitation.updateCoupleNames(first, last)');
-console.log('- WeddingInvitation.updateWeddingDate(date)');
-console.log('- WeddingInvitation.updateLocation(location)');
-console.log('- WeddingInvitation.updateTimelineEvent(index, title, time, location)');
-console.log('- WeddingInvitation.updateGalleryImage(index, path, altText)');
-console.log('- WeddingInvitation.updateStoryText(text)');
-console.log('- WeddingInvitation.updateAsset(name, path)');
-console.log('- WeddingInvitation.updateAssets({...})');

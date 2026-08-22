@@ -1,17 +1,14 @@
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <defs><style>.icon-line { stroke: #9d9c7f; fill: none; stroke-width: 2; } .icon-fill { fill: #9d9c7f; }</style></defs>
-  <!-- Left dancer -->
-  <circle cx="30" cy="25" r="6" class="icon-fill" />
-  <path class="icon-line" d="M 30 31 L 30 48" />
-  <path class="icon-line" d="M 20 40 L 40 40" />
-  <path class="icon-line" d="M 25 48 L 20 65" />
-  <path class="icon-line" d="M 35 48 L 40 65" />
-  <!-- Right dancer -->
-  <circle cx="70" cy="25" r="6" class="icon-fill" />
-  <path class="icon-line" d="M 70 31 L 70 48" />
-  <path class="icon-line" d="M 60 40 L 80 40" />
-  <path class="icon-line" d="M 65 48 L 60 65" />
-  <path class="icon-line" d="M 75 48 L 80 65" />
-  <!-- Heart above -->
-  <path d="M 50 15 Q 45 10 40 10 Q 35 10 35 15 Q 35 20 50 30 Q 65 20 65 15 Q 65 10 60 10 Q 55 10 50 15" class="icon-fill" opacity="0.6" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <circle cx="40" cy="40" r="35" fill="none" stroke="#6B7B5F" stroke-width="2"/>
+  
+  <!-- Music notes -->
+  <path d="M 30 50 L 30 30 Q 30 25, 35 25 Q 40 25, 40 30 L 40 50" stroke="#6B7B5F" stroke-width="2" fill="none"/>
+  <ellipse cx="35" cy="50" rx="5" ry="4" fill="#6B7B5F"/>
+  
+  <path d="M 50 45 L 50 25 Q 50 20, 55 20 Q 60 20, 60 25 L 60 45" stroke="#8A9B7C" stroke-width="2" fill="none"/>
+  <ellipse cx="55" cy="45" rx="5" ry="4" fill="#8A9B7C"/>
+  
+  <!-- Music lines -->
+  <line x1="25" y1="28" x2="55" y2="28" stroke="#C9A9A6" stroke-width="1.5" opacity="0.5"/>
+  <line x1="25" y1="32" x2="55" y2="32" stroke="#C9A9A6" stroke-width="1.5" opacity="0.5"/>
 </svg>
