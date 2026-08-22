@@ -1,0 +1,17 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs><style>.icon-line { stroke: #9d9c7f; fill: none; stroke-width: 2; } .icon-fill { fill: #9d9c7f; }</style></defs>
+  <!-- Left dancer -->
+  <circle cx="30" cy="25" r="6" class="icon-fill" />
+  <path class="icon-line" d="M 30 31 L 30 48" />
+  <path class="icon-line" d="M 20 40 L 40 40" />
+  <path class="icon-line" d="M 25 48 L 20 65" />
+  <path class="icon-line" d="M 35 48 L 40 65" />
+  <!-- Right dancer -->
+  <circle cx="70" cy="25" r="6" class="icon-fill" />
+  <path class="icon-line" d="M 70 31 L 70 48" />
+  <path class="icon-line" d="M 60 40 L 80 40" />
+  <path class="icon-line" d="M 65 48 L 60 65" />
+  <path class="icon-line" d="M 75 48 L 80 65" />
+  <!-- Heart above -->
+  <path d="M 50 15 Q 45 10 40 10 Q 35 10 35 15 Q 35 20 50 30 Q 65 20 65 15 Q 65 10 60 10 Q 55 10 50 15" class="icon-fill" opacity="0.6" />
+</svg>

@@ -1,0 +1,79 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Botanical Frame Decorations -->
+  <defs>
+    <style>
+      .leaf { fill: #8b9c7f; opacity: 0.8; }
+      .vine { stroke: #9d9c7f; fill: none; stroke-width: 2; opacity: 0.7; }
+      .flower-petal { fill: #a88a8a; opacity: 0.6; }
+      .flower-center { fill: #9d9c7f; }
+    </style>
+  </defs>
+  
+  <!-- Top left vines -->
+  <path class="vine" d="M 20 50 Q 40 80 60 100 T 100 150" />
+  <path class="vine" d="M 30 20 Q 50 40 70 60 T 120 120" />
+  
+  <!-- Top right vines -->
+  <path class="vine" d="M 580 50 Q 560 80 540 100 T 500 150" />
+  <path class="vine" d="M 570 20 Q 550 40 530 60 T 480 120" />
+  
+  <!-- Bottom left vines -->
+  <path class="vine" d="M 20 550 Q 40 520 60 500 T 100 450" />
+  <path class="vine" d="M 30 580 Q 50 560 70 540 T 120 480" />
+  
+  <!-- Bottom right vines -->
+  <path class="vine" d="M 580 550 Q 560 520 540 500 T 500 450" />
+  <path class="vine" d="M 570 580 Q 550 560 530 540 T 480 480" />
+  
+  <!-- Decorative leaves -->
+  <ellipse class="leaf" cx="40" cy="70" rx="6" ry="12" transform="rotate(-30 40 70)" />
+  <ellipse class="leaf" cx="70" cy="90" rx="5" ry="10" transform="rotate(20 70 90)" />
+  <ellipse class="leaf" cx="560" cy="70" rx="6" ry="12" transform="rotate(30 560 70)" />
+  <ellipse class="leaf" cx="530" cy="90" rx="5" ry="10" transform="rotate(-20 530 90)" />
+  
+  <ellipse class="leaf" cx="40" cy="530" rx="6" ry="12" transform="rotate(30 40 530)" />
+  <ellipse class="leaf" cx="70" cy="510" rx="5" ry="10" transform="rotate(-20 70 510)" />
+  <ellipse class="leaf" cx="560" cy="530" rx="6" ry="12" transform="rotate(-30 560 530)" />
+  <ellipse class="leaf" cx="530" cy="510" rx="5" ry="10" transform="rotate(20 530 510)" />
+  
+  <!-- Flowers in corners -->
+  <!-- Top left flower -->
+  <circle cx="45" cy="50" r="3" class="flower-petal" />
+  <circle cx="52" cy="48" r="3" class="flower-petal" />
+  <circle cx="55" cy="55" r="3" class="flower-petal" />
+  <circle cx="48" cy="58" r="3" class="flower-petal" />
+  <circle cx="50" cy="53" r="2" class="flower-center" />
+  
+  <!-- Top right flower -->
+  <circle cx="555" cy="50" r="3" class="flower-petal" />
+  <circle cx="548" cy="48" r="3" class="flower-petal" />
+  <circle cx="545" cy="55" r="3" class="flower-petal" />
+  <circle cx="552" cy="58" r="3" class="flower-petal" />
+  <circle cx="550" cy="53" r="2" class="flower-center" />
+  
+  <!-- Bottom left flower -->
+  <circle cx="45" cy="550" r="3" class="flower-petal" />
+  <circle cx="52" cy="552" r="3" class="flower-petal" />
+  <circle cx="55" cy="545" r="3" class="flower-petal" />
+  <circle cx="48" cy="542" r="3" class="flower-petal" />
+  <circle cx="50" cy="547" r="2" class="flower-center" />
+  
+  <!-- Bottom right flower -->
+  <circle cx="555" cy="550" r="3" class="flower-petal" />
+  <circle cx="548" cy="552" r="3" class="flower-petal" />
+  <circle cx="545" cy="545" r="3" class="flower-petal" />
+  <circle cx="552" cy="542" r="3" class="flower-petal" />
+  <circle cx="550" cy="547" r="2" class="flower-center" />
+  
+  <!-- Side decorative branches -->
+  <path class="vine" d="M 15 200 Q 25 220 35 240" />
+  <path class="vine" d="M 585 200 Q 575 220 565 240" />
+  <path class="vine" d="M 15 360 Q 25 340 35 320" />
+  <path class="vine" d="M 585 360 Q 575 340 565 320" />
+  
+  <!-- Ornamental corners -->
+  <circle cx="30" cy="30" r="8" fill="none" stroke="#9d9c7f" stroke-width="1" opacity="0.4" />
+  <circle cx="570" cy="30" r="8" fill="none" stroke="#9d9c7f" stroke-width="1" opacity="0.4" />
+  <circle cx="30" cy="570" r="8" fill="none" stroke="#9d9c7f" stroke-width="1" opacity="0.4" />
+  <circle cx="570" cy="570" r="8" fill="none" stroke="#9d9c7f" stroke-width="1" opacity="0.4" />
+</svg>

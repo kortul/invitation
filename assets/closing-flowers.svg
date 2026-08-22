@@ -1,0 +1,83 @@
+<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Closing Section Flowers -->
+  <defs>
+    <style>
+      .close-petal { fill: #a88a8a; opacity: 0.7; }
+      .close-leaf { fill: #8b9c7f; opacity: 0.7; }
+      .close-center { fill: #9d9c7f; }
+      .close-stem { stroke: #9d9c7f; fill: none; stroke-width: 1.5; opacity: 0.6; }
+    </style>
+  </defs>
+  
+  <!-- Left flower cluster -->
+  <!-- Stems -->
+  <path class="close-stem" d="M 50 200 Q 45 150 40 100" />
+  <path class="close-stem" d="M 50 200 Q 50 150 50 80" />
+  <path class="close-stem" d="M 50 200 Q 55 150 60 100" />
+  
+  <!-- Left flower -->
+  <circle cx="40" cy="100" r="2.5" class="close-petal" />
+  <circle cx="46" cy="98" r="2.5" class="close-petal" />
+  <circle cx="48" cy="106" r="2.5" class="close-petal" />
+  <circle cx="42" cy="110" r="2.5" class="close-petal" />
+  <circle cx="42" cy="104" r="1.5" class="close-center" />
+  
+  <!-- Center flower (larger) -->
+  <circle cx="50" cy="80" r="4" class="close-petal" />
+  <circle cx="58" cy="78" r="4" class="close-petal" />
+  <circle cx="60" cy="88" r="4" class="close-petal" />
+  <circle cx="52" cy="94" r="4" class="close-petal" />
+  <circle cx="42" cy="88" r="4" class="close-petal" />
+  <circle cx="50" cy="86" r="2" class="close-center" />
+  
+  <!-- Right flower -->
+  <circle cx="60" cy="100" r="2.5" class="close-petal" />
+  <circle cx="54" cy="98" r="2.5" class="close-petal" />
+  <circle cx="52" cy="106" r="2.5" class="close-petal" />
+  <circle cx="58" cy="110" r="2.5" class="close-petal" />
+  <circle cx="58" cy="104" r="1.5" class="close-center" />
+  
+  <!-- Leaves -->
+  <ellipse class="close-leaf" cx="35" cy="140" rx="4" ry="8" transform="rotate(-35 35 140)" />
+  <ellipse class="close-leaf" cx="65" cy="140" rx="4" ry="8" transform="rotate(35 65 140)" />
+  <ellipse class="close-leaf" cx="48" cy="130" rx="3" ry="7" transform="rotate(-20 48 130)" />
+  <ellipse class="close-leaf" cx="52" cy="130" rx="3" ry="7" transform="rotate(20 52 130)" />
+  
+  <!-- Center decorative element -->
+  <circle cx="150" cy="100" r="20" fill="none" stroke="#9d9c7f" stroke-width="1" opacity="0.3" />
+  <circle cx="150" cy="100" r="15" fill="none" stroke="#9d9c7f" stroke-width="0.5" opacity="0.2" />
+  
+  <!-- Right flower cluster -->
+  <!-- Stems -->
+  <path class="close-stem" d="M 250 200 Q 245 150 240 100" />
+  <path class="close-stem" d="M 250 200 Q 250 150 250 80" />
+  <path class="close-stem" d="M 250 200 Q 255 150 260 100" />
+  
+  <!-- Left flower -->
+  <circle cx="240" cy="100" r="2.5" class="close-petal" />
+  <circle cx="246" cy="98" r="2.5" class="close-petal" />
+  <circle cx="248" cy="106" r="2.5" class="close-petal" />
+  <circle cx="242" cy="110" r="2.5" class="close-petal" />
+  <circle cx="242" cy="104" r="1.5" class="close-center" />
+  
+  <!-- Center flower (larger) -->
+  <circle cx="250" cy="80" r="4" class="close-petal" />
+  <circle cx="258" cy="78" r="4" class="close-petal" />
+  <circle cx="260" cy="88" r="4" class="close-petal" />
+  <circle cx="252" cy="94" r="4" class="close-petal" />
+  <circle cx="242" cy="88" r="4" class="close-petal" />
+  <circle cx="250" cy="86" r="2" class="close-center" />
+  
+  <!-- Right flower -->
+  <circle cx="260" cy="100" r="2.5" class="close-petal" />
+  <circle cx="254" cy="98" r="2.5" class="close-petal" />
+  <circle cx="252" cy="106" r="2.5" class="close-petal" />
+  <circle cx="258" cy="110" r="2.5" class="close-petal" />
+  <circle cx="258" cy="104" r="1.5" class="close-center" />
+  
+  <!-- Leaves -->
+  <ellipse class="close-leaf" cx="235" cy="140" rx="4" ry="8" transform="rotate(-35 235 140)" />
+  <ellipse class="close-leaf" cx="265" cy="140" rx="4" ry="8" transform="rotate(35 265 140)" />
+  <ellipse class="close-leaf" cx="248" cy="130" rx="3" ry="7" transform="rotate(-20 248 130)" />
+  <ellipse class="close-leaf" cx="252" cy="130" rx="3" ry="7" transform="rotate(20 252 130)" />
+</svg>

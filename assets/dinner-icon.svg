@@ -1,0 +1,8 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs><style>.icon-line { stroke: #9d9c7f; fill: none; stroke-width: 2; } .icon-fill { fill: #9d9c7f; }</style></defs>
+  <circle cx="35" cy="45" r="15" class="icon-line" />
+  <circle cx="65" cy="45" r="15" class="icon-line" />
+  <path d="M 25 70 L 25 80 L 30 80" class="icon-line" />
+  <path d="M 75 70 L 75 80 L 70 80" class="icon-line" />
+  <line x1="40" y1="75" x2="60" y2="75" class="icon-line" />
+</svg>
