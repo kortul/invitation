@@ -5,24 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приглашение на свадьбу</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Александр и Мария</h1>
-            <p class="subtitle">Приглашаем вас на нашу свадьбу</p>
-            <p class="date">20 сентября 2025</p>
-        </header>
-        <section class="details">
-            <h2>Детали</h2>
-            <p>Мы будем рады видеть вас на нашей свадьбе!</p>
-            <p>Место проведения: Усадьба "Масловка"</p>
-            <p>Время: 15:30</p>
-        </section>
-        <section class="rsvp">
-            <h2>RSVP</h2>
-            <p>Пожалуйста, подтвердите ваше присутствие до 1 сентября 2025</p>
-        </section>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Александр и Мария</h1>
+            <p class="hero-subtitle">Приглашают вас на свою свадьбу</p>
+            <div class="hero-date">
+                <span class="date-day">20</span>
+                <span class="date-month">СЕНТЯБРЯ</span>
+                <span class="date-year">2025</span>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="scroll-content">
+                <p>Дорогие друзья и родные!</p>
+                <p>В этот День мы хотим разделить с вами самое важное событие нашей жизни.</p>
+                <p>Приглашаем вас присоединиться к нам в этот особенный день!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="schedule" id="schedule">
+        <h2 class="section-title">Распорядок дня</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-time">15:30</div>
+                <div class="timeline-event">Сбор гостей</div>
+                <div class="timeline-icon">
+                    <img src="assets/Guests.png" alt="Сбор гостей">
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">16:00</div>
+                <div class="timeline-event">Выездная церемония</div>
+                <div class="timeline-icon">
+                    <img src="assets/Ceremony.png" alt="Церемония">
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">17:00</div>
+                <div class="timeline-event">Праздничный ужин</div>
+                <div class="timeline-icon">
+                    <img src="assets/Dinner.png" alt="Ужин">
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">21:00</div>
+                <div class="timeline-event">Торт и завершение вечера</div>
+                <div class="timeline-icon">
+                    <img src="assets/Cake.png" alt="Торт">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location" id="location">
+        <h2 class="section-title">Место проведения</h2>
+        <div class="location-content">
+            <div class="location-text">
+                <p class="location-name">Усадьба "Масловка"</p>
+                <p class="location-address">Московская область, Дмитровский городской округ, село Масловка</p>
+                <a href="https://yandex.ru/maps/-/CDu~KJWC" class="location-link" target="_blank">Показать на карте</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gifts Section -->
+    <section class="gifts" id="gifts">
+        <h2 class="section-title">Подарки</h2>
+        <div class="gifts-content">
+            <p>Дорогие гости!</p>
+            <p>Ваше присутствие — уже самый ценный подарок для нас.</p>
+            <p>Если вы хотите сделать подарок, мы будем рады вкладу в бюджет молодой семьи.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>С любовью, Александр и Мария</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
